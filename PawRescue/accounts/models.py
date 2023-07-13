@@ -1,5 +1,4 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, Permission, Group
 from django.db import models
 
@@ -28,9 +27,7 @@ class AccountManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
-        user.save(using= self._db)
-
-
+        user.save(using=self._db)
 
 
 class Account(AbstractBaseUser):
@@ -77,115 +74,55 @@ class Account(AbstractBaseUser):
 
     REQUIRED_FIELDS = ['username']
 
+    objects = AccountManager()
+
+    class Meta:
+        default_related_name = 'accounts_custom_users'
+
     def __str__(self):
         return self.email
 
-    # from django.contrib.auth.base_user import BaseUserManager
-    # from django.contrib.auth.hashers import make_password
-    # from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, Permission, Group
-    # from django.db import models
-    #
-    #
-    #
-    #
-    # class CustomUserHandler(BaseUserManager):
-    #
-    #     def _create_user(self, email, password, **extra_fields):
-    #         if not email:
-    #             raise ValueError("The given username must be set")
-    #
-    #         user = self.model(email=email, **extra_fields)
-    #         user.password = make_password(password)
-    #         user.save(using=self._db)
-    #         return user
-    #
-    #     def create_user(self, email, password=None, **extra_fields):
-    #         if not email:
-    #             raise ValueError('You must set a value for the Username field.')
-    #
-    #         extra_fields.setdefault("is_staff", False)
-    #         extra_fields.setdefault("is_superuser", False)
-    #         return self._create_user(email, password, **extra_fields)
-    #
-        def create_superuser(self, email, password=None, **extra_fields):
-            extra_fields.setdefault('is_staff', True)
-            extra_fields.setdefault('is_superuser', True)
-    #
-    #         if extra_fields.get('is_staff') is not True:
-    #             raise ValueError('The superuser account requires the is_staff attribute to be set to True.')
-    #         if extra_fields.get('is_superuser') is not True:
-    #             raise ValueError('The superuser account requires the is_superuser attribute to be set to True.')
-    #
-    #         return self._create_user(email, password, **extra_fields)
-    #
-    #
-    # class CustomUser(PermissionsMixin, AbstractBaseUser):
-    #     email = models.EmailField(
-    #         null=False,
-    #         blank=False,
-    #         unique=True,
-    #     )
-    #
-    # is_active = models.BooleanField(
-    #     default=True,
-    # )
-    #
-    # is_staff = models.BooleanField(
-    #     default=False,
-    # )
-    #
-    # is_superuser = models.BooleanField(
-    #     default=False
-    # )
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
 
-    # USERNAME_FIELD = 'email'
-    #
-    # REQUIRED_FIELDS = []
-#
-#     objects = CustomUserHandler()
-#
-#     class Meta:
-#         default_related_name = 'accounts_custom_users'
-#
-# def __str__(self):
-#     return self.email
+    def has_module_perms(self,
+                         app_label):  # checks if the user has permissions to view the app with the given app_label
+        return True
 
-#
-# class Profile(models.Model):
-#     first_name = models.CharField(
-#         max_length=30,
-#         null=False,
-#         blank=False,
-#     )
-#     last_name = models.CharField(
-#         max_length=30,
-#         null=False,
-#         blank=False,
-#     )
-#
-#     email = models.EmailField(
-#         unique=True,
-#     )
-#     age = models.PositiveIntegerField(
-#         blank=False,
-#         null=False,
-#     )
-#
-#     # gender = models.CharField(
-#     #     choices=Gender.choices(),
-#     #     max_length=Gender.max_length(),
-#     #
-#     # )
-#     # profileimage = models.URLField(
-#     #     blank=True,
-#     #     null=False,
-#     # )
-#     profile = models.OneToOneField(
-#         CustomUser,
-#         on_delete=models.CASCADE,
-#         related_name='profile',
-#     )
-#     def get_full_name(self):
-#         return f"{self.first_name} {self.last_name}"
-#
-#
+
+class Profile(models.Model):
+
+    first_name = models.CharField(
+        max_length=30,
+        null=False,
+        blank=False,
+    )
+    last_name = models.CharField(
+        max_length=30,
+        null=False,
+        blank=False,
+    )
+
+    email = models.EmailField(
+        unique=True,
+    )
+
+    age = models.PositiveIntegerField(
+        blank=False,
+        null=False,
+    )
+
+    profile_picture = models.URLField(
+        blank=True,
+        null=False,
+    )
+
+    profile = models.OneToOneField(
+        Account,
+        on_delete=models.CASCADE,
+        related_name='profile',
+    )
+
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
