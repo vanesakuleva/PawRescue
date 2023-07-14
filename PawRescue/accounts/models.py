@@ -12,22 +12,13 @@ class AccountManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),
-            username=username
+            username=username,
         )
         user.set_password(password)
         user.save(using=self._db)
-
-        profile = Profile.objects.create(
-            first_name="",
-            last_name="",
-            age=0,
-            profile_picture="",
-            profile=user,
-        )
-
         return user
 
-    def create_superuser(self, email, username, password):
+    def create_superuser(self, email, username, password, ):
         user = self.create_user(
             email=self.normalize_email(email),
             password=password,
@@ -77,12 +68,10 @@ class Account(AbstractBaseUser):
     is_superuser = models.BooleanField(
         default=False
     )
-
-    USERNAME_FIELD = ['email']
+    objects = AccountManager()
+    USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = ['username']
-
-    objects = AccountManager()
 
     class Meta:
         default_related_name = 'accounts_custom_users'
@@ -99,7 +88,6 @@ class Account(AbstractBaseUser):
 
 
 class Profile(models.Model):
-
     # DEFAULT_PROFILE_PICTURE = os.getenv('DEFAULT_PROFILE_PICTURE')
     first_name = models.CharField(
         max_length=30,
@@ -122,7 +110,7 @@ class Profile(models.Model):
         null=False,
     )
 
-    profile = models.OneToOneField(
+    user = models.OneToOneField(
         Account,
         on_delete=models.CASCADE,
         related_name='profile',

@@ -10,7 +10,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import login
 
 from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm
-from PawRescue.accounts.models import Profile
+from PawRescue.accounts.models import Profile, Account
 
 UserModel = get_user_model()
 
@@ -55,16 +55,14 @@ class LogoutUserView(auth_views.LogoutView):
 
 
 class DetailsUserView(views.DetailView):
-    TEMPLATE_NAME = 'Profile Details'
     model = Profile
     template_name = 'user/details-account.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.object.user
-        profile = Profile.objects.get(pk=user.id)
+        profile = Account.objects.get(pk=user.id)
         context['profile'] = profile
-        context['template_name'] = self.TEMPLATE_NAME
         return context
 
 
