@@ -1,7 +1,7 @@
 from django.urls import path
 
-from PawRescue.common.views import index
+from PawRescue.common.views import IndexView
 
 urlpatterns = (
-    path('', index, name='index'),
+    path('', IndexView.as_view(), name='index'),
 )

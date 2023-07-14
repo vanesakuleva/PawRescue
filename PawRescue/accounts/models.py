@@ -8,7 +8,7 @@ class AccountManager(BaseUserManager):
         if not email:
             raise ValueError('Users must have an email!')
         if not username:
-            raise ValueError('Users must have username!')
+            raise ValueError('Users must have a username!')
 
         user = self.model(
             email=self.normalize_email(email),
@@ -16,6 +16,15 @@ class AccountManager(BaseUserManager):
         )
         user.set_password(password)
         user.save(using=self._db)
+
+        profile = Profile.objects.create(
+            first_name="",
+            last_name="",
+            age=0,
+            profile_picture="",
+            profile=user,
+        )
+
         return user
 
     def create_superuser(self, email, username, password):
@@ -38,7 +47,6 @@ class Account(AbstractBaseUser):
         blank=False,
         unique=True,
     )
-
     username = models.CharField(
         max_length=35,
         unique=True
@@ -70,7 +78,7 @@ class Account(AbstractBaseUser):
         default=False
     )
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = ['email']
 
     REQUIRED_FIELDS = ['username']
 
@@ -92,6 +100,7 @@ class Account(AbstractBaseUser):
 
 class Profile(models.Model):
 
+    # DEFAULT_PROFILE_PICTURE = os.getenv('DEFAULT_PROFILE_PICTURE')
     first_name = models.CharField(
         max_length=30,
         null=False,
@@ -103,16 +112,12 @@ class Profile(models.Model):
         blank=False,
     )
 
-    email = models.EmailField(
-        unique=True,
-    )
-
     age = models.PositiveIntegerField(
         blank=False,
         null=False,
     )
-
     profile_picture = models.URLField(
+        # default=DEFAULT_PROFILE_PICTURE,
         blank=True,
         null=False,
     )
@@ -124,5 +129,8 @@ class Profile(models.Model):
     )
 
     def get_full_name(self):
-        return f"{self.first_name} {self.last_name}"
+        if self.first_name and self.last_name:
+            return f"{self.first_name} {self.last_name}"
 
+    def __str__(self):
+        return f'{self.id} {self.get_full_name()}'
