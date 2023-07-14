@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Destinations</title>
+    <title>Pets</title>
     <link rel="stylesheet" href="{% static 'styles/styles.css' %}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,14 +28,14 @@
       <nav>
           <ul role="list">
             <li><a href="#">About</a></li>
-            <li><a href="">Destinations</a></li>
+            <li><a href="">PetPosts</a></li>
           </ul>
           <ul role="list" class="nav-ul">
           {% if not user.is_authenticated %}
                 <li><a href="{% url 'register user' %}">SignIn</a></li>
                 <li><a href="{% url 'login user' %}">LogIn</a></li>
           {% else %}
-                <li><a href="#">Add Destination</a></li>
+                <li><a href="#">Add Post</a></li>
                 <li><a href="{% url 'details user' %}">Profile</a></li>
                 <li><a href="{% url 'logout user' %}">LogOut</a></li>
           {% endif %}
@@ -49,7 +49,7 @@
        <p class="welcome-user">Hello, {{ user.username }}!</p>
     {% endif %}
     <section id="main-content">
-      <p>Discover amazing destinations and plan your next adventure.</p>
+      <p>Help finding a forever home</p>
     </section>
     {% endblock %}
   </main>
