@@ -9,7 +9,7 @@
         <p>Age: {{ object.age }}</p>
 
         <div>
-            <a href="#">
+            <a href="{% url 'edit user' pk=user.pk %}">
                 <button class="button">Edit</button>
             </a>
             <a class="anchor" href="#">

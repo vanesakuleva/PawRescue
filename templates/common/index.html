@@ -37,7 +37,7 @@
           {% else %}
                 <li><a href="#">Add Post</a></li>
                 <li><a href="{% url 'details user' pk=user.pk %}">Profile</a></li>
-                <li><a href="{% url 'logout user' %}">LogOut</a></li>
+                <li><a href="{% url 'logout' %}">LogOut</a></li>
           {% endif %}
           </ul>
       </nav>

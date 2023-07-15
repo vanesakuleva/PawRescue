@@ -1,9 +1,9 @@
 from django.views import generic as views
-from django.contrib.auth import views as auth_views, get_user_model
-from django.shortcuts import redirect
-from django.urls import reverse_lazy
+from django.contrib.auth import views as auth_views, get_user_model, logout
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth import login
-from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm
+from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm, ProfileForm
 from PawRescue.accounts.models import Profile
 
 UserModel = get_user_model()
@@ -17,7 +17,14 @@ class PermissionMixin(views.View):
         return super().dispatch(request, *args, **kwargs)
 
 
-class RegisterUserView(PermissionMixin, views.CreateView):
+class SuccessURLMixin:
+    def get_success_url(self):
+        if 'next' in self.request.POST:
+            return self.request.POST['next']
+        return self.success_url
+
+
+class RegisterUserView(PermissionMixin, SuccessURLMixin, views.CreateView):
     template_name = 'user/register.html'
     form_class = RegisterUserForm
     success_url = reverse_lazy('index')
@@ -34,30 +41,29 @@ class RegisterUserView(PermissionMixin, views.CreateView):
 
         return context
 
-    def get_success_url(self):
-        if 'next' in self.request.POST:
-            return self.request.POST['next']
-        return self.success_url
 
-
-class LoginUserView(auth_views.LoginView):
+class LoginUserView(SuccessURLMixin, auth_views.LoginView):
     template_name = 'user/login.html'
     form_class = LoginUserForm
     success_url = reverse_lazy('index')
 
-    def get_success_url(self):
-        if 'next' in self.request.POST:
-            return self.request.POST['next']
-        return self.success_url
+
+class LogoutConfirmationView(views.TemplateView):
+    template_name = 'user/logout.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 
-class LogoutUserView(auth_views.LogoutView):
-    pass
+def logout_user(request):
+    logout(request)
+    return redirect('index')
 
 
 class DetailsUserView(views.DetailView):
     model = Profile
     template_name = 'user/details-account.html'
+    form_class = ProfileForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -69,7 +75,20 @@ class DetailsUserView(views.DetailView):
 
 
 class UpdateUserView(views.UpdateView):
-    pass
+    model = Profile
+    template_name = 'user/edit-account.html'
+    fields = ['first_name', 'last_name', 'age', 'profile_picture']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.object.user
+        profile = Profile.objects.get(pk=user.id)
+        context['profile'] = profile
+        return context
+
+    def get_success_url(self):
+        pk = self.object.pk
+        return reverse('details user', kwargs={'pk': pk})
 
 
 class DeleteUserView(views.DeleteView):
