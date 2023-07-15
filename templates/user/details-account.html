@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="form_div">
-        <img src="{{ profile.picture }}" alt="" width="200" height="200">
+        <img src="{{ object.picture }}" alt="" width="200" height="200">
         <p>First Name: {{ object.first_name }}</p>
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
@@ -12,7 +12,7 @@
             <a href="{% url 'edit user' pk=user.pk %}">
                 <button class="button">Edit</button>
             </a>
-            <a class="anchor" href="#">
+            <a class="anchor" href="{% url 'delete user' pk=user.pk  %}">
                 <button class="button">Delete</button>
             </a>
             <a class="anchor" href="#">

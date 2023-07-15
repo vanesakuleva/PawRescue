@@ -1,13 +1,22 @@
-
 {% extends 'common/index.html' %}
-
+{% load static %}
 {% block content %}
-    <div class="form_div">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            {{ form.errors }}
-            <button class="button">Login</button>
-        </form>
-    </div>
+    <form class="form" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+    <button type="submit">Login</button>
+    </form>
 {% endblock %}
+
+{#{% extends 'common/index.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="form_div">#}
+{#        <form method="POST" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#            {{ form }}#}
+{#            {{ form.errors }}#}
+{#            <button class="button">Login</button>#}
+{#        </form>#}
+{#    </div>#}
+{#{% endblock %}#}

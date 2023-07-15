@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth import login
 from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm, ProfileForm
-from PawRescue.accounts.models import Profile
+from PawRescue.accounts.models import Profile, Account
 
 UserModel = get_user_model()
 
@@ -92,4 +92,10 @@ class UpdateUserView(views.UpdateView):
 
 
 class DeleteUserView(views.DeleteView):
-    pass
+    model = Account
+    template_name = 'user/delete-account.html'
+    success_url = reverse_lazy('index')
+
+    def delete(self, request, *args, **kwargs):
+        self.object.delete()
+        return redirect(self.get_success_url())

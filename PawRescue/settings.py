@@ -131,9 +131,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'staticfiles /'
 
+STATICFILES_DIRS=(
+    BASE_DIR / 'staticfiles',
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_PROFILE_PICTURE = 'https://d20iq7dmd9ruqy.cloudfront.net/images/locations%20staff/default-profile-with-dog.png'
