@@ -1,10 +1,9 @@
-
 from django.views import generic as views
-from django.contrib.auth import views as auth_views,get_user_model
+from django.contrib.auth import views as auth_views, get_user_model
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth import login
-from PawRescue.accounts.forms import RegisterUserForm
+from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm
 from PawRescue.accounts.models import Profile
 
 UserModel = get_user_model()
@@ -42,7 +41,14 @@ class RegisterUserView(PermissionMixin, views.CreateView):
 
 
 class LoginUserView(auth_views.LoginView):
-    pass
+    template_name = 'user/login.html'
+    form_class = LoginUserForm
+    success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        if 'next' in self.request.POST:
+            return self.request.POST['next']
+        return self.success_url
 
 
 class LogoutUserView(auth_views.LogoutView):
@@ -60,9 +66,6 @@ class DetailsUserView(views.DetailView):
         context['profile'] = profile
 
         return context
-
-
-
 
 
 class UpdateUserView(views.UpdateView):
