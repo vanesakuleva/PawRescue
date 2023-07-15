@@ -36,7 +36,7 @@
                 <li><a href="{% url 'login user' %}">LogIn</a></li>
           {% else %}
                 <li><a href="#">Add Post</a></li>
-                <li><a href="{% url 'details user' %}">Profile</a></li>
+                <li><a href="{% url 'details user' pk=user.pk %}">Profile</a></li>
                 <li><a href="{% url 'logout user' %}">LogOut</a></li>
           {% endif %}
           </ul>

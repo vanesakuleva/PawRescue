@@ -1,14 +1,13 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, Permission, Group
+from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, Permission, Group, AbstractUser
 from django.db import models
 
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
-        if not email:
-            raise ValueError('Users must have an email!')
-        if not username:
-            raise ValueError('Users must have a username!')
+        if not email or not username:
+            raise ValueError('Users must have an email and username!')
 
         user = self.model(
             email=self.normalize_email(email),
@@ -18,19 +17,20 @@ class AccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, password, ):
+    def create_superuser(self, email, username, password):
         user = self.create_user(
             email=self.normalize_email(email),
-            password=password,
             username=username,
+            password=password,
         )
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
+        return user
 
 
-class Account(AbstractBaseUser):
+class Account(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         max_length=35,
         verbose_name='email',
@@ -69,9 +69,16 @@ class Account(AbstractBaseUser):
         default=False
     )
     objects = AccountManager()
+
     USERNAME_FIELD = 'email'
 
     REQUIRED_FIELDS = ['username']
+
+    def save(self, *args, **kwargs):
+        created = not self.pk
+        super().save(*args, **kwargs)
+        if created:
+            Profile.objects.create(user=self)
 
     class Meta:
         default_related_name = 'accounts_custom_users'
@@ -79,41 +86,36 @@ class Account(AbstractBaseUser):
     def __str__(self):
         return self.email
 
-    def has_perm(self, perm, obj=None):
-        return self.is_admin
-
-    def has_module_perms(self,
-                         app_label):  # checks if the user has permissions to view the app with the given app_label
-        return True
-
 
 class Profile(models.Model):
     # DEFAULT_PROFILE_PICTURE = os.getenv('DEFAULT_PROFILE_PICTURE')
     first_name = models.CharField(
         max_length=30,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
+        default="",
     )
     last_name = models.CharField(
         max_length=30,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
+        default="",
     )
 
     age = models.PositiveIntegerField(
-        blank=False,
-        null=False,
+        null=True,
+        blank=True,
     )
     profile_picture = models.URLField(
         # default=DEFAULT_PROFILE_PICTURE,
+        null=True,
         blank=True,
-        null=False,
     )
 
     user = models.OneToOneField(
-        Account,
+        get_user_model(),
         on_delete=models.CASCADE,
-        related_name='profile',
+        primary_key=True,
     )
 
     def get_full_name(self):
@@ -122,3 +124,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.id} {self.get_full_name()}'
+

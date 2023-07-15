@@ -1,16 +1,11 @@
-from django.contrib.auth.views import LoginView
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.templatetags.static import static
-from django.urls import reverse_lazy
+
 from django.views import generic as views
-from django.contrib.auth import views as auth_views, login, get_user_model
+from django.contrib.auth import views as auth_views,get_user_model
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth import login
-
-from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm
-from PawRescue.accounts.models import Profile, Account
+from PawRescue.accounts.forms import RegisterUserForm
+from PawRescue.accounts.models import Profile
 
 UserModel = get_user_model()
 
@@ -61,9 +56,12 @@ class DetailsUserView(views.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         user = self.object.user
-        profile = Account.objects.get(pk=user.id)
+        profile = Profile.objects.get(pk=user.id)
         context['profile'] = profile
+
         return context
+
+
 
 
 
