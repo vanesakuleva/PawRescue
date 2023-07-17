@@ -36,7 +36,6 @@ class RegisterUserView(PermissionMixin, SuccessURLMixin, views.CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         context['next'] = self.request.GET.get('next', '')
 
         return context
@@ -51,7 +50,7 @@ class LoginUserView(SuccessURLMixin, auth_views.LoginView):
 class LogoutConfirmationView(views.TemplateView):
     template_name = 'user/logout.html'
 
-    def get(self, request):
+    def get(self, request, **kwargs):
         return render(request, self.template_name)
 
 

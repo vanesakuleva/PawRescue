@@ -5,13 +5,13 @@
         <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=\, initial-scale=1.0"/>
-    <link rel="stylesheet" href= "{% static 'cs/styles.css' %}" />
+    <link rel="stylesheet" href= "{% static 'css/styles.css' %}" />
 </head>
 
   <body>
   <header>
       <div id="logo">
-        <img src="{% static 'images/wepik-vintage-serif-typo-animal-badge-logo-20230709081847MMVF copy.png' %}" alt=""/>
+        <img src=""alt=""/>
         <a href="{% url 'index' %}">Home</a>
       </div>
 
@@ -31,7 +31,7 @@
           </ul>
           <ul role="list" class="nav-ul">
           {% if not user.is_authenticated %}
-                <li><a href="{% url 'register user' %}">SignIn</a></li>
+                <li><a href="{% url 'register user' %}">Register</a></li>
                 <li><a href="{% url 'login user' %}">LogIn</a></li>
           {% else %}
                 <li><a href="#">Add Post</a></li>
