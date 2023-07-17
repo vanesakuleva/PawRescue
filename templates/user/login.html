@@ -1,13 +1,12 @@
-
 {% extends 'common/index.html' %}
 
 {% block content %}
-    <div class="form_div">
-        <form method="POST" enctype="multipart/form-data">
+    <div class="profile">
+        <form class="form" method="POST" action="">
             {% csrf_token %}
             {{ form.as_p }}
             {{ form.errors }}
-            <button class="button">Login</button>
+            <button type="submit">Login</button>
         </form>
     </div>
 {% endblock %}

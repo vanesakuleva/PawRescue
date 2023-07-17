@@ -1,61 +1,56 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=\, initial-scale=1.0"/>
-    <link rel="stylesheet" href= "{% static 'css/styles.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <title>PawRescue</title>
 </head>
 
-  <body>
-  <header>
-      <div id="logo">
-        <img src=""alt=""/>
-        <a href="{% url 'index' %}">Home</a>
-      </div>
+<body>
+    <div id="logo">
+        <header>
+            <a id="logo" href="{% url 'index' %}">
+                <img id="logo-img" src="{% static '/images/logo.png' %}" alt="logo" />
+            </a>
+            <nav>
+                    {% if not user.is_authenticated %}
+                    <div class="guest">
+                        <a href="{% url 'register user' %}">Register</a>
+                        <a href="{% url 'login user' %}">LogIn</a>
+                        <a href="#">About</a>
+                        <a href="#">PetPosts</a>
+                    </div>
+                    {% else %}
+                    <!-- If user profile has NOT been created -->
+                    <div class="user">
+                        <a href="#">About</a>
+                        <a href="#">PetPosts</a>
+                        <a href="#">Add Post</a>
+                        <a href="{% url 'details user' pk=user.pk %}">Profile</a>
+                        <a href="{% url 'logout' %}">LogOut</a>
+                    </div>
+                    {% endif %}
+            </nav>
+        </header>
 
-      <div>
-            <form id="searchbar" method="post">
-                {{ form.target }}
-                {% csrf_token %}
-                {% if form.target %}
-                    <button type="submit">Search</button>
-                {% endif %}
-            </form>
-      </div>
-      <nav>
-          <ul role="list">
-            <li><a href="#">About</a></li>
-            <li><a href="">PetPosts</a></li>
-          </ul>
-          <ul role="list" class="nav-ul">
-          {% if not user.is_authenticated %}
-                <li><a href="{% url 'register user' %}">Register</a></li>
-                <li><a href="{% url 'login user' %}">LogIn</a></li>
-          {% else %}
-                <li><a href="#">Add Post</a></li>
-                <li><a href="{% url 'details user' pk=user.pk %}">Profile</a></li>
-                <li><a href="{% url 'logout' %}">LogOut</a></li>
-          {% endif %}
-          </ul>
-      </nav>
-  </header>
+        <main>
+            {% block content %}
+            {% if user.is_authenticated %}
+            <p> Welcome to our pet rescue website, where compassion and care come together to find loving homes for adorable furry friends.</p>
+            {% endif %}
+            {% endblock %}
+        </main>
+    </div>
 
-  <main>
-    {% block content %}
-    {% if user.is_authenticated %}
-       <p class="welcome-user">Hello, {{ user.username }}!</p>
-    {% endif %}
-    <section id="main-content">
-      <p>Help finding a forever home</p>
-    </section>
-    {% endblock %}
-  </main>
+    <footer>
+        <p> &copy; 2023 PawRescue. Vanesa Kuleva. </p>
 
-  <footer>
-    <p>&copy; 2023 PawRescue. Vanesa Kuleva.</p>
-
-  </footer>
+    </footer>
 </body>
+
 </html>
+

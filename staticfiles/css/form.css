@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+/* Additional fonts for girly style */
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico');
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.form {
+  background-color: #fcd4e6; /* Light pink background */
+  max-width: 440px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 45px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #eca2bf; /* Darker pink border */
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form h2 {
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: #e67fba; /* Girly pink color */
+  font-family: 'Pacifico', cursive; /* Girly font */
+}
+
+.form input {
+  border-radius: 10px;
+  outline: 0;
+  background: #f8f4b4; /* Light yellow background for input */
+  width: 100%;
+  height: 50px;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form textarea {
+  background: #f8f4b4; /* Light yellow background for textarea */
+  border-radius: 10px;
+  border: 1px solid #e6e6e6; /* Light gray border for textarea */
+  width: 99%;
+  max-width: 99%;
+  min-width: 99%;
+  min-height: 50px;
+  margin-bottom: 10px;
+}
+
+
+/*.form button {*/
+/*  font-family: 'Kaushan Script', cursive; !* Girly font *!*/
+/*  text-transform: uppercase;*/
+/*  outline: 0;*/
+/*  background: #ff89c0; !* Lighter girly pink button background *!*/
+/*  width: 100%;*/
+/*  border: 2px solid #e67fba; !* Girly pink border *!*/
+/*  padding: 15px;*/
+/*  color: #ffffff;*/
+/*  font-size: 16px;*/
+/*  cursor: pointer;*/
+/*  border-radius: 50px; !* Rounded button *!*/
+/*  transition: background-color 0.3s ease-in-out; !* Smooth transition on hover *!*/
+/*}*/
+
+
+
+.form button {
+  /* Existing styles */
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease; /* Add a transition for background color */
+}
+
+/* Remove the :after pseudo-element styles */
+.form button:after {
+  display: none;
+}
+
+/* Change button color on hover */
+.form button:hover {
+  background: #e67fba; /* Lighter girly pink on hover */
+}
+
+/* Change button color on active (when clicked) */
+.form button:active {
+  background-color: #f8f4b4; /* Lighter girly pink on active/clicked */
+  outline: 0;
+}
+
+/* Center the button horizontally and vertically */
+.form button {
+  margin: 0 auto;
+}
+
+/* Optional: Increase the padding for larger screens */
+@media (min-width: 768px) {
+  .form button {
+    padding: 0 40px;
+  }
+}
+
+.form button:focus {
+  background: #e67fba; /* Darker girly pink on focus */
+  border: 2px solid #ff89c0; /* Lighter girly pink border on focus */
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.container:before,
+.container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #6b6767;
+  font-size: 17px;
+}
+
+.form .message a {
+  color: #d93b99; /* Girly pink color for links */
+  text-decoration: none;
+}
+
+#search .form h2 {
+  margin-top: -40px;
+  margin-bottom: 0px;
+  font-size: 30px;
+  color: #e67fba; /* Girly pink color */
+  font-family: 'Pacifico', cursive; /* Girly font */
+}
+
+.search-result > .fruit {
+  scale: 0.5;
+}
+
+.search-result {
+  margin-top: -50px;
+  display: flex;
+}
+
+.no-result {
+  margin-top: 8rem;
+  font-size: 30px;
+}

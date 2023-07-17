@@ -1,4 +1,4 @@
-/*@import 'typography.css';*/
-/*@import 'forms.css';*/
-/*@import 'navigation.css';*/
-/*@import 'all.css';*/
+@import "navigation.css";
+@import "form.css";
+@import "dashboard.css";
+@import "details.css";
