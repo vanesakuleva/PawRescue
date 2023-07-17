@@ -2,9 +2,14 @@
 
 {% block content %}
     <div class="profile">
-        <form class="form" method="POST" action="">
+        <form class="form" method="post" action="">
             {% csrf_token %}
-            {{ form.as_p }}
+           {% for field in form %}
+                <div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
             {{ form.errors }}
             <button type="submit">Login</button>
         </form>

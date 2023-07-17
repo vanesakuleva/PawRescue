@@ -57,12 +57,3 @@ h2 {
   background: rgb(224, 64, 168); /* Darker pink on hover */
 }
 
-.fruit p {
-  margin: auto;
-  font-size: 0.7rem;
-  font-weight: 500;
-  width: 90%;
-  text-align: center;
-  color: rgb(90, 5, 60); /* Dark pink text color */
-  font-family: 'Roboto', sans-serif;
-}
