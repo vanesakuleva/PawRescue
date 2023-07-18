@@ -10,9 +10,7 @@
 .form {
   background-color: #fcd4e6;
   max-width: 440px;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 50px auto;
   padding: 45px;
   text-align: center;
   border-radius: 10px;

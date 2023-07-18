@@ -1,45 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-nav a {
- font-family: 'Quicksand', sans-serif;
+/* Your other styles go here */
+
+/* Style for the navigation */
+.navigation {
+    background-color: #fcd4e6;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 10px;
+    border: 1px solid #eca2bf;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-bottom: 20px;
 }
 
-nav a:hover {
-  color: rgb(234, 49, 124);
-  text-decoration: underline;
-}
-footer {
-  background-color: #f8eaf3;
-  color:  rgb(226, 94, 158);
-  font-weight: bold;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  padding: 10px 0;
-  font-family: 'Quicksand', sans-serif;
-}
-footer p {
-  margin: 0;
+/* Style for navigation links */
+.nav-link {
+    color: #111;
+    text-decoration: none;
+    padding: 15px 25px;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
 }
 
-/* Home Page Styles */
-#home img {
-  display: block;
-  margin: auto;
-  height: 50%;
-  width: 50%;
-  transform: rotate(20deg);
+.nav-link:hover {
+    background-color: #e67fba;
 }
 
-#home h1 {
-  margin-top: 20px;
-  font-style: italic;
-  font-size: 64px;
-  font-weight: 300;
-  text-align: center;
-  color: rgb(249, 113, 192);
-  text-transform: capitalize;
+/* Style for the user navigation */
+.user {
+    display: flex;
+    justify-content: center;
 }
+
+/* Style for the guest navigation */
+.guest {
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for the buttons in the navigation */
+.navigation button {
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    color: #111;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    height: 48px;
+    margin: 0 10px;
+    padding: 0 25px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.navigation button:hover {
+    background: #e67fba;
+}
+
+.navigation button:focus {
+    background: #e67fba;
+    border: 2px solid #ff89c0;
+}
+
+/* Center the buttons within the navigation */
+.user button, .guest button {
+    margin: 0;
+}
+
+/* Adjust button size for larger screens */
+@media (min-width: 768px) {
+    .navigation button {
+        padding: 0 40px;
+    }
+}
+
+/* Your other styles go here */
+
+
+
+/*nav a {*/
+/* font-family: 'Quicksand', sans-serif;*/
+/*}*/
+
+/*nav a:hover {*/
+/*  color: rgb(234, 49, 124);*/
+/*  text-decoration: underline;*/
+/*}*/
+/*footer {*/
+/*  background-color: #f8eaf3;*/
+/*  color:  rgb(226, 94, 158);*/
+/*  font-weight: bold;*/
+/*  text-align: center;*/
+/*  position: fixed;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 30px;*/
+/*  padding: 10px 0;*/
+/*  font-family: 'Quicksand', sans-serif;*/
+/*}*/
+/*footer p {*/
+/*  margin: 0;*/
+/*}*/
+
+/*!* Home Page Styles *!*/
+/*#home img {*/
+/*  display: block;*/
+/*  margin: auto;*/
+/*  height: 50%;*/
+/*  width: 50%;*/
+/*  transform: rotate(20deg);*/
+/*}*/
+
+/*#home h1 {*/
+/*  margin-top: 20px;*/
+/*  font-style: italic;*/
+/*  font-size: 64px;*/
+/*  font-weight: 300;*/
+/*  text-align: center;*/
+/*  color: rgb(249, 113, 192);*/
+/*  text-transform: capitalize;*/
+/*}*/
