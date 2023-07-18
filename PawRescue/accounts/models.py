@@ -90,7 +90,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 
 class Profile(models.Model):
-    DEFAULT_PROFILE_PICTURE = os.getenv('DEFAULT_PROFILE_PICTURE')
     first_name = models.CharField(
         max_length=30,
         null=True,
@@ -109,7 +108,6 @@ class Profile(models.Model):
         blank=True,
     )
     profile_picture = models.URLField(
-        default=DEFAULT_PROFILE_PICTURE,
         null=True,
         blank=True,
     )

@@ -50,24 +50,6 @@
     color: #1c1106; /* Pink color */
     font-family: 'Quicksand', sans-serif;
 }
-.form button {
-    background-color: #e99056;/* Light pink color */
-    border: 2px solid #1c1106;
-    border-radius: 8px;
-    color: #1c1106; /* Pink color */
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    height: 48px;
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 0 25px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-}
-
 
 .form button {
     align-items: center;

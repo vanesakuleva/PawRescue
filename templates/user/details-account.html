@@ -1,8 +1,14 @@
 {% extends 'common/index.html' %}
+{% load static %}
 
 {% block content %}
     <div class="form_div">
-        <img src="{{ object.picture }}" alt="" width="200" height="200">
+        {% if object.profile_picture %}
+
+            <img src="{{ object.profile_picture }}" alt="" width="200" height="200">
+        {% else %}
+        <img src="{% static 'images/default_profile_picture.png' %}" alt="" width="200" height="200">
+        {% endif %}
         <p>First Name: {{ object.first_name }}</p>
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
