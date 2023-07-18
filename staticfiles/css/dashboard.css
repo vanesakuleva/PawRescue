@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% auto;
+    font-family: 'Lato', sans-serif;
+}
+/*body {*/
+/*    background-image: url("bg-registration-form-7.jpg");*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    height: 100%;*/
+/*    background-position: center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*}*/
 
 #dashboard {
   margin: 50px;
@@ -10,11 +25,19 @@
   flex-wrap: wrap;
 }
 
-h2 {
-  text-align: center;
-  font-size: 50px;
-  color: rgb(249, 113, 192); /* Girly pink color */
-}
+ h2 {
+     position: relative;
+     text-align: center;
+     font-size: 50px;
+     color: rgb(88, 68, 42); /* Girly pink color */
+     background-color: #d5b48c; /* Light pink color */
+     padding: 10px; /* Add some padding around the title */
+     border-radius: 10px; /* Add rounded corners */
+     margin: 0 auto; /* Center the box */
+     max-width: 40%; /* Set a maximum width for the box */
+     font-family: 'Quicksand', cursive;
+ }
+
 
 .fruit {
   display: flex;
@@ -27,7 +50,7 @@ h2 {
   margin: 20px auto;
   background-color: rgb(255, 204, 217); /* Light pink background */
   border-radius: 5px;
-  border: 1px solid rgb(255, 102, 153); /* Darker pink border */
+  border: 1px solid rgb(212, 139, 80); /* Darker pink border */
   box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
@@ -40,7 +63,7 @@ h2 {
 .fruit .title {
   margin: 0;
   letter-spacing: 2px;
-  color: rgb(144, 19, 92); /* Dark pink title color */
+  color: rgb(88, 68, 42); /* Dark pink title color */
   text-decoration: underline;
 }
 
@@ -52,10 +75,10 @@ h2 {
   border-radius: 3px;
   text-align: center;
   color: white;
-  background: rgb(255, 102, 204); /* Bright pink button background */
+  background: rgb(213, 180, 140); /* Bright pink button background */
 }
 
 .details-btn:hover {
-  background: rgb(224, 64, 168); /* Darker pink on hover */
+  background: rgb(212, 139, 80); /* Darker pink on hover */
 }
 

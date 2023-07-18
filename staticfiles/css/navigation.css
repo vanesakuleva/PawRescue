@@ -1,32 +1,30 @@
+/* Import the Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
-
-/* Your other styles go here */
 
 /* Style for the navigation */
 .navigation {
-    background-color: #fcd4e6;
+    background-color: #d5b48c; /* Light brown background */
     text-align: center;
     padding: 15px;
     font-family: 'Quicksand', sans-serif;
     border-radius: 10px;
-    border: 1px solid #eca2bf;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     margin-bottom: 20px;
 }
 
 /* Style for navigation links */
 .nav-link {
-    color: #111;
+    color: #fff; /* White text color */
     text-decoration: none;
     padding: 15px 25px;
     margin: 0 5px;
     border-radius: 8px;
     font-size: 16px;
+    background-color: #d48b50; /* Light pink background */
     transition: background-color 0.2s ease;
 }
 
 .nav-link:hover {
-    background-color: #e67fba;
+    background-color: #1c1106; /* Dark brown on hover */
 }
 
 /* Style for the user navigation */
@@ -43,10 +41,10 @@
 
 /* Style for the buttons in the navigation */
 .navigation button {
-    background-color: #fee6e3;
-    border: 2px solid #111;
+    background-color: #e99056; /* Light pink button background */
+    border: 2px solid #1c1106; /* Dark brown border */
     border-radius: 8px;
-    color: #111;
+    color: #1c1106; /* Dark brown text color */
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
@@ -59,16 +57,18 @@
 }
 
 .navigation button:hover {
-    background: #e67fba;
+    background: #1c1106; /* Dark brown on hover */
+    color: #fff; /* White text color on hover */
 }
 
 .navigation button:focus {
-    background: #e67fba;
-    border: 2px solid #ff89c0;
+    background: #d5b48c; /* Light brown on focus */
+    border: 2px solid #1f1f30;
 }
 
 /* Center the buttons within the navigation */
-.user button, .guest button {
+.user button,
+.guest button {
     margin: 0;
 }
 
