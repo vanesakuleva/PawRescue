@@ -98,4 +98,3 @@ class DeleteUserView(views.DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object.delete()
         return redirect(self.get_success_url())
-

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'common/index.html' %}
 
-</body>
-</html>
+{% block content %}
+    <div>
+        <h2 class="pet">Add Pet</h2>
+        <form class="form" method="post" action="">
+             {% for field in form %}
+                <div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            {% csrf_token %}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

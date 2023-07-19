@@ -29,26 +29,11 @@ body {
  }
 
 
-.pet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 25vw;
-  height: 50vh;
-  padding-bottom: 1rem;
-  margin: 20px auto;
-  background-color: rgb(255, 204, 217);
-  border-radius: 5px;
-  border: 1px solid rgb(212, 139, 80);
-  box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
-  -webkit-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
-  -moz-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
-}
 
 .pet img {
   height: 12vw;
 }
+
 
 .pet .title {
   margin: 0;
