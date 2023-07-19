@@ -1,4 +1,3 @@
-/* Import the Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 
@@ -22,17 +21,28 @@
     font-family: 'Quicksand', sans-serif;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+.form a {
+    font-weight: normal;
+    color: #1c1106; /* Pink color */
+    font-family: 'Quicksand', sans-serif;
+    align-items: center;
+}
+
+.form {
+    margin-top: 10px;
+}
+
 
 .form h2 {
     margin-bottom: 50px;
     font-size: 30px;
-    color: #d48b50; /* Pink color */
+    color: #d48b50;
     font-family: 'Quicksand', cursive;
 }
 
 .form input,
 .form textarea {
-    background: #f4efec; /* White color */
+    background: #f4efec;
     border-radius: 10px;
     outline: 0;
     border: 1px solid #e6e6e6;
@@ -47,17 +57,17 @@
 
 .form div label {
     font-weight: normal;
-    color: #1c1106; /* Pink color */
+    color: #1c1106;
     font-family: 'Quicksand', sans-serif;
 }
 
 .form button {
     align-items: center;
-    background-color: #e99056; /* Light pink color */
-    border: 2px solid #1c1106; /* Pink color */
+    background-color: #e99056;
+    border: 2px solid #1c1106;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #1c1106; /* Pink color */
+    color: #1c1106;
     cursor: pointer;
     display: flex;
     font-family: 'Quicksand', sans-serif;
@@ -80,19 +90,19 @@
 }
 
 .form button:hover {
-    background: #eebfa2; /* Pink color */
-    color: #1c1106; /* White text color */
+    background: #eebfa2;
+    color: #1c1106; /
 }
 
 .form button:active {
-    background-color: #fff; /* Whites color */
-    color: #1c1106; /* Pink color */
+    background-color: #fff;
+    color: #1c1106;
     outline: 0;
 }
 
 .form button:focus {
-    background: #1c1106; /* Pink color */
-    border: 2px solid #ff89c0; /* Lighter pink color */
+    background: #1c1106;
+    border: 2px solid #ff89c0;
 }
 
 .container {
@@ -104,9 +114,9 @@
 .form h2 {
     margin-bottom: 20px;
     font-size: 30px;
-    color: #d48b50; /* Pink color */
+    color: #d48b50;
     font-family: 'Quicksand', cursive;
-    padding: 10px; /* Add this line to adjust the padding */
+    padding: 10px;
 }
 .container:before,
 .container:after {
@@ -122,7 +132,7 @@
 }
 
 .form .message a {
-    color: #1c1106; /* Pink color */
+    color: #1c1106;
     text-decoration: none;
 }
 
@@ -130,13 +140,13 @@
     margin-top: -40px;
     margin-bottom: 0px;
     font-size: 30px;
-    color: #1f0710; /* Pink color */
+    color: #1f0710;
     font-family: 'Quicksand', cursive;
 }
 
 .search-result > .pet {
     scale: 0.5;
-}s
+}
 
 .search-result {
     margin-top: -50px;

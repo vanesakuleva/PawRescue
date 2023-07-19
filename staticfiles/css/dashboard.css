@@ -1,21 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
 body {
     background-attachment: fixed;
     background-position: center;
     background-size: 100% auto;
     font-family: 'Lato', sans-serif;
 }
-/*body {*/
-/*    background-image: url("bg-registration-form-7.jpg");*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-/*    height: 100%;*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*}*/
 
 #dashboard {
   margin: 50px;
@@ -29,17 +19,17 @@ body {
      position: relative;
      text-align: center;
      font-size: 50px;
-     color: rgb(88, 68, 42); /* Girly pink color */
-     background-color: #d5b48c; /* Light pink color */
-     padding: 10px; /* Add some padding around the title */
-     border-radius: 10px; /* Add rounded corners */
-     margin: 0 auto; /* Center the box */
-     max-width: 40%; /* Set a maximum width for the box */
+     color: rgb(88, 68, 42);
+     background-color: #d5b48c;
+     padding: 10px;
+     border-radius: 10px;
+     margin: 0 auto;
+     max-width: 40%;
      font-family: 'Quicksand', cursive;
  }
 
 
-.fruit {
+.pet {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,37 +38,22 @@ body {
   height: 50vh;
   padding-bottom: 1rem;
   margin: 20px auto;
-  background-color: rgb(255, 204, 217); /* Light pink background */
+  background-color: rgb(255, 204, 217);
   border-radius: 5px;
-  border: 1px solid rgb(212, 139, 80); /* Darker pink border */
+  border: 1px solid rgb(212, 139, 80);
   box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
   -webkit-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
   -moz-box-shadow: -4px 3px 25px 1px rgba(0, 0, 0, 0.55);
 }
 
-.fruit img {
+.pet img {
   height: 12vw;
 }
 
-.fruit .title {
+.pet .title {
   margin: 0;
   letter-spacing: 2px;
-  color: rgb(88, 68, 42); /* Dark pink title color */
+  color: rgb(88, 68, 42);
   text-decoration: underline;
-}
-
-.details-btn {
-  margin-top: 4px;
-  text-decoration: none;
-  font-size: 21px;
-  width: 160px;
-  border-radius: 3px;
-  text-align: center;
-  color: white;
-  background: rgb(213, 180, 140); /* Bright pink button background */
-}
-
-.details-btn:hover {
-  background: rgb(212, 139, 80); /* Darker pink on hover */
 }
 

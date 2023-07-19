@@ -1,12 +1,14 @@
-<html>
+{% extends 'common/index.html' %}
+
+{% block content %}
 <head>
     <title>Logout Confirmation</title>
 </head>
 <body>
     <h2>Are you sure you want to log out?</h2>
-    <form action="{% url 'logout_confirm' %}" method="post">
+    <form class="form" action="{% url 'logout_confirm' %}" method="post">
         {% csrf_token %}
         <button type="submit">Yes, Log out</button>
     </form>
 </body>
-</html>
+{% endblock %}

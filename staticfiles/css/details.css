@@ -1,51 +1,26 @@
-
-.form button {
-    align-items: center;
-    background-color: #e99056; /* Light pink color */
-    border: 2px solid #1c1106; /* Pink color */
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: #1c1106; /* Pink color */
-    cursor: pointer;
-    display: flex;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    height: 48px;
-    justify-content: center;
-    line-height: 24px;
-    max-width: 100%;
-    padding: 0 25px;
-    text-align: center;
+.details-link {
+    color: #fff;
     text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    padding: 15px 25px;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #d48b50;
     transition: background-color 0.2s ease;
 }
 
-.form button:after {
-    display: none;
+.details-link:hover {
+    background-color: #f4efec;
+}
+.details-link:active {
+    background-color: #1c1106;
+    color: #fff;
 }
 
-.form button:hover {
-    background: #eebfa2; /* Pink color */
-    color: #1c1106; /* White text color */
+.details-buttons {
+    margin-top: 20px;
 }
 
-.form button:active {
-    background-color: #fff; /* Whites color */
-    color: #1c1106; /* Pink color */
-    outline: 0;
-}
-
-.form button:focus {
-    background: #1c1106; /* Pink color */
-    border: 2px solid #ff89c0; /* Lighter pink color */
-}
-
-.container {
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
+.details-link + .details-link {
+    margin-left: 10px;
 }

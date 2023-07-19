@@ -2,9 +2,10 @@
 {% load static %}
 
 {% block content %}
-    <div class="form_div">
-        {% if object.profile_picture %}
+    <div class="form">
 
+
+        {% if object.profile_picture %}
             <img src="{{ object.profile_picture }}" alt="" width="200" height="200">
         {% else %}
         <img src="{% static 'images/default_profile_picture.png' %}" alt="" width="200" height="200">
@@ -13,17 +14,11 @@
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
         <p>Age: {{ object.age }}</p>
+        <div class="details-buttons">
+            <a href="{% url 'edit user' pk=user.pk %}" class="details-link">Edit</a>
+            <a href="{% url 'delete user' pk=user.pk  %}" class="details-link">Delete</a>
+            <a href="#" class="details-link">Change Password</a>
 
-        <div>
-            <a href="{% url 'edit user' pk=user.pk %}">
-                <button class="button">Edit</button>
-            </a>
-            <a class="anchor" href="{% url 'delete user' pk=user.pk  %}">
-                <button class="button">Delete</button>
-            </a>
-            <a class="anchor" href="#">
-                <button class="button">Change Password</button>
-            </a>
         </div>
     </div>
 {% endblock %}

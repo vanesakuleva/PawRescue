@@ -1,9 +1,7 @@
-/* Import the Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-/* Style for the navigation */
 .navigation {
-    background-color: #d5b48c; /* Light brown background */
+    background-color: #d5b48c;
     text-align: center;
     padding: 15px;
     font-family: 'Quicksand', sans-serif;
@@ -11,40 +9,40 @@
     margin-bottom: 20px;
 }
 
-/* Style for navigation links */
+
 .nav-link {
-    color: #fff; /* White text color */
+    color: #fff;
     text-decoration: none;
     padding: 15px 25px;
     margin: 0 5px;
     border-radius: 8px;
     font-size: 16px;
-    background-color: #d48b50; /* Light pink background */
+    background-color: #d48b50;
     transition: background-color 0.2s ease;
 }
 
 .nav-link:hover {
-    background-color: #1c1106; /* Dark brown on hover */
+    background-color: #1c1106;
 }
 
-/* Style for the user navigation */
+
 .user {
     display: flex;
     justify-content: center;
 }
 
-/* Style for the guest navigation */
+
 .guest {
     display: flex;
     justify-content: center;
 }
 
-/* Style for the buttons in the navigation */
+
 .navigation button {
-    background-color: #e99056; /* Light pink button background */
-    border: 2px solid #1c1106; /* Dark brown border */
+    background-color: #e99056;
+    border: 2px solid #1c1106;
     border-radius: 8px;
-    color: #1c1106; /* Dark brown text color */
+    color: #1c1106;
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
@@ -57,72 +55,24 @@
 }
 
 .navigation button:hover {
-    background: #1c1106; /* Dark brown on hover */
-    color: #fff; /* White text color on hover */
+    background: #1c1106;
+    color: #fff;
 }
 
 .navigation button:focus {
-    background: #d5b48c; /* Light brown on focus */
+    background: #d5b48c;
     border: 2px solid #1f1f30;
 }
 
-/* Center the buttons within the navigation */
+
 .user button,
 .guest button {
     margin: 0;
 }
 
-/* Adjust button size for larger screens */
+
 @media (min-width: 768px) {
     .navigation button {
         padding: 0 40px;
     }
 }
-
-/* Your other styles go here */
-
-
-
-/*nav a {*/
-/* font-family: 'Quicksand', sans-serif;*/
-/*}*/
-
-/*nav a:hover {*/
-/*  color: rgb(234, 49, 124);*/
-/*  text-decoration: underline;*/
-/*}*/
-/*footer {*/
-/*  background-color: #f8eaf3;*/
-/*  color:  rgb(226, 94, 158);*/
-/*  font-weight: bold;*/
-/*  text-align: center;*/
-/*  position: fixed;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  width: 100%;*/
-/*  height: 30px;*/
-/*  padding: 10px 0;*/
-/*  font-family: 'Quicksand', sans-serif;*/
-/*}*/
-/*footer p {*/
-/*  margin: 0;*/
-/*}*/
-
-/*!* Home Page Styles *!*/
-/*#home img {*/
-/*  display: block;*/
-/*  margin: auto;*/
-/*  height: 50%;*/
-/*  width: 50%;*/
-/*  transform: rotate(20deg);*/
-/*}*/
-
-/*#home h1 {*/
-/*  margin-top: 20px;*/
-/*  font-style: italic;*/
-/*  font-size: 64px;*/
-/*  font-weight: 300;*/
-/*  text-align: center;*/
-/*  color: rgb(249, 113, 192);*/
-/*  text-transform: capitalize;*/
-/*}*/
