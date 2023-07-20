@@ -6,6 +6,7 @@
     <div class="pet-cards">
         {% for pet in pets %}
         <div class="pet-card">
+        {% csrf_token %}
             <img src="{{ pet.photo.url }}" class="card-img-top" alt="Pet Image">
             <p>{{ pet.name }}</p>
             <p>{{ pet.pet_type }} - {{ pet.breed }}</p>
