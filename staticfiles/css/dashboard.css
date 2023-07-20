@@ -28,7 +28,17 @@ body {
      font-family: 'Quicksand', cursive;
  }
 
-
+.welcome-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #f4efec;
+    background-color: rgb(213, 180, 140);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 800px;
+}
 
 .pet img {
   height: 12vw;
@@ -41,4 +51,7 @@ body {
   color: rgb(88, 68, 42);
   text-decoration: underline;
 }
+
+
+
 

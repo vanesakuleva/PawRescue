@@ -11,13 +11,12 @@ class CreatePetView(views.CreateView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        if 'next' in self.request.POST:
-            return self.request.POST['next']
-        return self.success_url
+        if form.is_valid():
+            form.instance.created_by = self.request.user
+            return super().form_valid(form)
+        else:
+            print(form.errors)  # Debugging: Check form validation errors in the console
+            return self.form_invalid(form)
 
 
 class DetailsPetView(views.DetailView):

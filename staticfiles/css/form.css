@@ -27,6 +27,19 @@
     font-family: 'Quicksand', sans-serif;
     align-items: center;
 }
+.form select {
+    background: #f4efec;
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+    height: 50px;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+}
 
 .form {
     margin-top: 10px;
@@ -136,6 +149,8 @@
     text-decoration: none;
 }
 
+
+
 #search .form h2 {
     margin-top: -40px;
     margin-bottom: 0px;
@@ -156,4 +171,162 @@
 .no-result {
     margin-top: 8rem;
     font-size: 30px;
+}
+
+.form label {
+    margin-bottom: 10px;
+}
+
+.form a {
+  font-weight: normal;
+  color: #1c1106; /* Pink color */
+  font-family: 'Quicksand', sans-serif;
+  align-items: center;
+}
+
+.form h2 {
+  margin-bottom: 50px;
+  font-size: 30px;
+  color: #d48b50;
+  font-family: 'Quicksand', cursive;
+}
+
+.form-pets input,
+.form-pets textarea {
+  background: #f4efec;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px solid #e6e6e6;
+  width: 100%;
+  height: 50px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-pets div label {
+  font-weight: normal;
+  color: #1c1106;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.form-pets button {
+  align-items: center;
+  background-color: #e99056;
+  border: 2px solid #1c1106;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #1c1106;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease;
+}
+
+.form-pets button:after {
+  display: none;
+}
+
+.form-pets button:hover {
+  background: #eebfa2;
+  color: #1c1106;
+}
+
+.form-pets button:active {
+  background-color: #fff;
+  color: #1c1106;
+  outline: 0;
+}
+
+.form-pets button:focus {
+  background: #1c1106;
+  border: 2px solid #ff89c0;
+}
+
+.form-pets.message {
+  margin: 15px 0 0;
+  color: #6b6767;
+  font-size: 17px;
+}
+
+.form-pets .message a {
+  color: #1c1106;
+  text-decoration: none;
+}
+.pet-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust the spacing between cards as needed */
+}
+
+.pet-card {
+  width: calc(33.33% - 20px); /* Set the width of each pet card to one-third minus spacing */
+  margin-bottom: 20px; /* Add spacing between rows */
+  border: 1px solid #ccc; /* Add a border for the cards */
+  border-radius: 10px; /* Add rounded corners to the cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight box shadow for a card effect */
+  padding: 10px; /* Add some padding inside the cards */
+  /* Add any other necessary styling for the pet cards */
+}
+
+/* Style the pet image container */
+.pet-card .image-container {
+  width: 100%; /* Ensure the container takes the full width of the card */
+  height: 120px; /* Set a fixed height for the image container */
+  border-radius: 10px 10px 0 0; /* Add rounded corners to the top of the image container */
+  overflow: hidden; /* Hide any content that overflows the container */
+}
+
+/* Style the pet image */
+.pet-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Scale the image while maintaining aspect ratio to cover the container */
+}
+
+/* Style the pet information */
+.pet-card .pet-info {
+  padding: 10px; /* Add some padding for pet information */
+}
+
+.pet-card p {
+  margin: 8px 0;
+  font-size: 14px; /* Adjust font size for pet information */
+}
+
+/* Style the buttons */
+.pet-card .details-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Add spacing between buttons and pet information */
+}
+
+.pet-card .details-link {
+  flex: 1; /* Distribute buttons evenly within the container */
+  margin: 0 5px; /* Add some spacing between buttons */
+  padding: 8px 12px;
+  background-color: #eebfa2;
+  color: #1c1106;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 12px; /* Adjust font size for buttons */
+}
+
+.pet-card .details-link:hover {
+  background-color: #1c1106;
+  color: #eebfa2;
 }

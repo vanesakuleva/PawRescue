@@ -21,14 +21,14 @@
             <div class="nav-buttons">
                 {% if user.is_authenticated %}
                 <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Pets</a>
+                <a href="{% url 'pet_catalog' %}" class="nav-link">Pets</a>
                 <a href="{% url 'add pet' %}" class="nav-link">Add Post</a>
                 <a href="{% url 'details user' pk=user.pk %}" class="nav-link">Profile</a>
                 <a href="{% url 'logout' %}" class="nav-link">LogOut</a>
                 {% else %}
                 <a href="{% url 'register user' %}" class="nav-link">Register</a>
                 <a href="{% url 'login user' %}" class="nav-link">Login</a>
-                <a href="#" class="nav-link">Pets</a>
+                <a href="{% url 'pet_catalog' %}" class="nav-link">Pets</a>
                 <a href="#" class="nav-link">About</a>
                 {% endif %}
             </div>
@@ -37,7 +37,9 @@
     <main>
         {% block content %}
         {% if user.is_authenticated %}
-        <p> Welcome to our pet rescue website, where compassion and care come together to find loving homes for adorable furry friends.</p>
+        <div class="welcome-text">
+            <p>Welcome to our pet rescue website, where compassion and care come together to find loving homes for adorable furry friends.</p>
+        </div>
         {% endif %}
         {% endblock %}
     </main>

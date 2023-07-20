@@ -1,24 +1,23 @@
 {% extends 'common/index.html' %}
 {% load static %}
-
 {% block content %}
+    <div class="form-pets">
     <h2>Pet Catalog</h2>
-    <div class="row">
+    <div class="pet-cards">
         {% for pet in pets %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="{% static 'path/to/your/pet/image.jpg' %}" class="card-img-top" alt="Pet Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ pet.name }}</h5>
-                        <p class="card-text">{{ pet.species }} - {{ pet.breed }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'pet_details' pet.pk %}" class="btn btn-primary btn-sm">Details</a>
-                        <a href="{% url 'adopt_pet' pet.pk %}" class="btn btn-success btn-sm">Adopt Pet</a>
-                        <a href="{% url 'donate_pet' pet.pk %}" class="btn btn-warning btn-sm">Donate</a>
-                    </div>
-                </div>
+        <div class="pet-card">
+            <img src="{{ pet.photo.url }}" class="card-img-top" alt="Pet Image">
+            <p>{{ pet.name }}</p>
+            <p>{{ pet.pet_type }} - {{ pet.breed }}</p>
+            <p>Age: {{ pet.age }}</p>
+            <p>Description: {{ pet.description }}</p>
+            <div class="details-buttons">
+                <a href="#" class="details-link">Details</a>
+                <a href="#" class="details-link">Adopt</a>
+                <a href="#" class="details-link">Donate</a>
             </div>
+        </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}
