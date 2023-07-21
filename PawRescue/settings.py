@@ -45,6 +45,7 @@ PAW_RESCUE_APPS = (
     'PawRescue.accounts',
     'PawRescue.common',
     'PawRescue.pets',
+    'PawRescue.adoptation'
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PAW_RESCUE_APPS
 

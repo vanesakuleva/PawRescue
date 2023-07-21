@@ -3,13 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from PawRescue.accounts.models import Account
-
-
-def validate_word_count(value):
-    max_word_count = 200
-    words = value.split()
-    if len(words) > max_word_count:
-        raise ValidationError("Please limit the text to a maximum of 200 words.")
+from PawRescue.utilities.validators import validate_word_count
 
 
 class Pet(models.Model):

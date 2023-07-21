@@ -29,8 +29,9 @@ class DetailsPetView(views.DetailView):
 
 class UpdatePetView(views.UpdateView):
     model = Pet
+    form_class = PetForm
     template_name = 'posts/edit-post.html'
-    exclude = ['created_by']
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

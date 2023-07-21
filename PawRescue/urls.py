@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('PawRescue.accounts.urls')),
     path('common/', include('PawRescue.common.urls')),
-    path('pets/', include('PawRescue.pets.urls'))
+    path('pets/', include('PawRescue.pets.urls')),
+    path('adoptation/', include('PawRescue.adoptation.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
