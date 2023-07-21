@@ -103,21 +103,10 @@ class DeleteUserView(views.DeleteView):
 class ChangePasswordView(PermissionMixin, views.UpdateView):
     template_name = 'user/change_password.html'
     form_class = ChangePasswordForm
-    success_url = reverse_lazy('login user')  # Replace with the correct URL name.
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['template_name'] = 'Change Password'
-        return context
 
     def form_valid(self, form):
-        form.save()
+        response = super().form_valid(form)
         # Logout the user after the password change.
-        self.request.user.refresh_from_db()
-        return super().form_valid(form)
+        logout(self.request)
+        return response
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['user'] = self.request.user
-        kwargs.pop('instance', None)
-        return kwargs
