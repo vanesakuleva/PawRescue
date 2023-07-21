@@ -106,7 +106,6 @@ class ChangePasswordView(auth_views.PasswordChangeView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        # Logout the user after the password change.
         logout(self.request)
         return response
 

@@ -1,4 +1,5 @@
 {% extends 'common/index.html' %}
+{% load static %}
 {% block content %}
     <div class="form-pets">
     <h2>Pet Catalog</h2>
@@ -12,7 +13,7 @@
             <p>Age: {{ pet.age }}</p>
             <p>Description: {{ pet.description }}</p>
             <div class="details-buttons">
-                <a href="#" class="details-link">Details</a>
+                <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
                 <a href="#" class="details-link">Adopt</a>
                 <a href="#" class="details-link">Donate</a>
             </div>

@@ -1,16 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends 'common/index.html' %}
+{% load static %}
+{% block content %}
+    <h2 class="pet">{{ object.name }}</h2>
+    <div class="form">
 
+    {% if object.photo %}
+          <img src="{{ pet.photo.url }}" class="card-img-top square-image" alt="Pet Image">
+    {% endif %}
+    {% if object.pet_type == 'Other' %}
+        <p>Pet type : {{ object.other_pet_type  }}</p>
+    {% else %}
+        <p>Pet type : {{ object.pet_type  }}</p>
+    {% endif %}
+        <p>Breed: {{ object.breed}}</p>
+        <p>Age: {{ object.age }}</p>
+        <p>Gender: {{ object.gender }}</p>
+    {% if object.description %}
+        <p>Description: {{ object.description}}</p>
+    {% endif %}
+    {% if object.specifics_in_behavior %}
+        <p>description: {{ object.specifics_in_behavior}}</p>
+    {% endif %}
+        <p>Health status: {{ object.health_status_text}}</p>
+    <p>Town: {{ object.town}}</p>
+    {% if object.can_be_driven %}
+        <p>Can be driven to other town: Yes</p>
+        {% else %}
+        <p>Can be driven to other town: No</p>
+    {% endif %}
+    <p>Post from: {{ object.created_by }}</p>
+    <p>Date: {{ object.created_at}}</p>
 
+{% if request.user == object.created_by %}
+        <div class="details-buttons">
+            <a href="{% url 'edit pet' pk=object.pk %}" class="details-link">Edit</a>
+            <a href="{% url 'delete pet' pk=object.pk  %}" class="details-link">Delete</a>
 
+        </div>
+    {% else %}
+    <div class="details-buttons">
+            <a href="{% url 'edit pet' pk=object.pk %}" class="details-link">Contact</a>
+    {% endif %}
+    </div>
+{% endblock %}
 
-    <h3>{{ pet.name }} - {{ pet.health_status }}</h3>
-<p>{{ pet.health_status_text }}</p>
-</head>
-<body>
-
-</body>
-</html>
