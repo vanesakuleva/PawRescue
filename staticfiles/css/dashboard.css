@@ -3,7 +3,7 @@
 body {
     background-attachment: fixed;
     background-position: center;
-    background-size: 100% auto;
+    background-size: auto 100%;
     font-family: 'Lato', sans-serif;
 }
 
@@ -42,12 +42,6 @@ body {
 
 
 
-.pet .title {
-  margin: 0;
-  letter-spacing: 2px;
-  color: rgb(88, 68, 42);
-  text-decoration: underline;
-}
 
 
 
