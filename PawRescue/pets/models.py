@@ -7,6 +7,10 @@ from PawRescue.utilities.validators import validate_word_count
 
 
 class Pet(models.Model):
+    MAX_LENGTH_NAME = 20
+    MAX_LENGTH = 10
+    MAX_LENGTH_TOWN = 20
+
     DEFAULT_TYPE = 'Unknown'
     PET_TYPES = [
         ('Dog', 'Dog'),
@@ -27,25 +31,25 @@ class Pet(models.Model):
         ('Critical', 'Critical')
     ]
     name = models.CharField(
-        max_length=20,
+        max_length=MAX_LENGTH_NAME,
         blank=True,
         default="To Be Named"
 
     )
     pet_type = models.CharField(
-        max_length=10,
+        max_length=MAX_LENGTH,
         choices=PET_TYPES
 
     )
 
     other_pet_type = models.CharField(
-        max_length=20,
+        max_length=MAX_LENGTH,
         blank=True,
         null=True
     )
 
     breed = models.CharField(
-        max_length=20,
+        max_length=MAX_LENGTH,
         blank=True,
         default=DEFAULT_TYPE
     )
@@ -55,31 +59,43 @@ class Pet(models.Model):
     )
 
     gender = models.CharField(
-        max_length=10,
+        max_length=MAX_LENGTH,
         choices=GENDERS,
         default=DEFAULT_TYPE
     )
 
     description = models.TextField(
-        validators=[validate_word_count]
+        validators=[validate_word_count],
+        null=False,
+        blank=False
+
     )
 
     specifics_in_behavior = models.TextField(
-        validators=[validate_word_count]
+        validators=[validate_word_count],
+        null=True,
+        blank=True
+
 
     )
     health_status = models.CharField(
-        max_length=10,
+        max_length=MAX_LENGTH,
         choices=HEALTH_STATUS_CHOICES,
         default='Good'
     )
 
     photo = models.ImageField(
-        upload_to='pet_photos/'
+        upload_to='pet_photos/',
+        null=False,
+        blank=False
+
     )
 
     town = models.CharField(
-        max_length=35
+        max_length=MAX_LENGTH_TOWN,
+        null=False,
+        blank=False
+
     )
 
     can_be_driven = models.BooleanField(
