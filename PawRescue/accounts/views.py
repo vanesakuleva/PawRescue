@@ -100,7 +100,7 @@ class DeleteUserView(views.DeleteView):
         return redirect(self.get_success_url())
 
 
-class ChangePasswordView(PermissionMixin, views.UpdateView):
+class ChangePasswordView(auth_views.PasswordChangeView):
     template_name = 'user/change_password.html'
     form_class = ChangePasswordForm
 
@@ -110,3 +110,5 @@ class ChangePasswordView(PermissionMixin, views.UpdateView):
         logout(self.request)
         return response
 
+    def get_success_url(self):
+        return reverse('login user')
