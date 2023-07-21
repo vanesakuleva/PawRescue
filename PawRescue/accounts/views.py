@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views, get_user_model, logout
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth import login
-from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm, ProfileForm
+from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm, ProfileForm, ChangePasswordForm
 from PawRescue.accounts.models import Profile, Account
 
 UserModel = get_user_model()
@@ -98,3 +98,26 @@ class DeleteUserView(views.DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object.delete()
         return redirect(self.get_success_url())
+
+
+class ChangePasswordView(PermissionMixin, views.UpdateView):
+    template_name = 'user/change_password.html'
+    form_class = ChangePasswordForm
+    success_url = reverse_lazy('login user')  # Replace with the correct URL name.
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['template_name'] = 'Change Password'
+        return context
+
+    def form_valid(self, form):
+        form.save()
+        # Logout the user after the password change.
+        self.request.user.refresh_from_db()
+        return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        kwargs.pop('instance', None)
+        return kwargs

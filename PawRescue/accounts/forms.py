@@ -22,3 +22,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'age', 'profile_picture']
+
+
+class ChangePasswordForm(auth_forms.PasswordChangeForm):
+    pass

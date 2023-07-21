@@ -16,7 +16,7 @@
         <div class="details-buttons">
             <a href="{% url 'edit user' pk=user.pk %}" class="details-link">Edit</a>
             <a href="{% url 'delete user' pk=user.pk  %}" class="details-link">Delete</a>
-            <a href="#" class="details-link">Change Password</a>
+            <a href="{% url 'change password' pk=user.pk  %}" class="details-link">Change Password</a>
 
         </div>
     </div>
