@@ -13,6 +13,16 @@
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
         <p>Age: {{ object.age }}</p>
+    {% if adoptions %}
+            <h2>Adoption Applications:</h2>
+            {% for adoption in adoptions %}
+                <p><strong>Pet:</strong> {{ adoption.pet.name }}</p>
+                <p><strong>Status:</strong> {{ adoption.status }}</p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No adoption applications filled yet.</p>
+        {% endif %}
         <div class="details-buttons">
             <a href="{% url 'edit user' pk=user.pk %}" class="details-link">Edit</a>
             <a href="{% url 'delete user' pk=user.pk  %}" class="details-link">Delete</a>
