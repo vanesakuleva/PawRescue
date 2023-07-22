@@ -31,15 +31,16 @@ class AccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser, PermissionsMixin):
+    MAX_LENGTH = 35
     email = models.EmailField(
-        max_length=35,
+        max_length=MAX_LENGTH,
         verbose_name='email',
         null=False,
         blank=False,
         unique=True,
     )
     username = models.CharField(
-        max_length=35,
+        max_length=MAX_LENGTH,
         unique=True
     )
 
@@ -88,14 +89,15 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 
 class Profile(models.Model):
+    MAX_LENGTH = 30
     first_name = models.CharField(
-        max_length=30,
+        max_length=MAX_LENGTH,
         null=True,
         blank=True,
         default="",
     )
     last_name = models.CharField(
-        max_length=30,
+        max_length=MAX_LENGTH,
         null=True,
         blank=True,
         default="",
