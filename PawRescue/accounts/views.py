@@ -5,6 +5,7 @@ from django.urls import reverse_lazy, reverse
 from django.contrib.auth import login
 from PawRescue.accounts.forms import RegisterUserForm, LoginUserForm, ProfileForm, ChangePasswordForm
 from PawRescue.accounts.models import Profile, Account
+from PawRescue.adoption.models import Adoption
 
 UserModel = get_user_model()
 
@@ -68,6 +69,8 @@ class DetailsUserView(views.DetailView):
         context = super().get_context_data(**kwargs)
         user = self.object.user
         profile = Profile.objects.get(pk=user.id)
+        adoptions = Adoption.objects.filter(user=profile.user)
+        context['adoptions'] = adoptions
         context['profile'] = profile
 
         return context
