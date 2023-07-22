@@ -14,7 +14,7 @@
             <p>Description: {{ pet.description }}</p>
             <div class="details-buttons">
                 <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
-                <a href="#" class="details-link">Adopt</a>
+                <a href="{% url 'adoption form' pk=pet.pk%}" class="details-link">Adopt</a>
                 <a href="#" class="details-link">Donate</a>
             </div>
         </div>
