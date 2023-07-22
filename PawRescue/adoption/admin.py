@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from PawRescue.adoption.models import Adoption
+
+
+@admin.register(Adoption)
+class AdoptionAdmin(admin.ModelAdmin):
+    list_display = ('user', 'pet', 'status')
+    list_filter = ('status',)
