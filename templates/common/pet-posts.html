@@ -12,10 +12,13 @@
             <p>{{ pet.pet_type }} - {{ pet.breed }}</p>
             <p>Age: {{ pet.age }}</p>
             <p>Description: {{ pet.description }}</p>
-            <div class="details-buttons">
-                <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
-                <a href="{% url 'adoption form' pk=pet.pk%}" class="details-link">Adopt</a>
-                <a href="#" class="details-link">Donate</a>
+             <div class="details-buttons">
+                {% if user.is_authenticated and user == pet.created_by %}
+                    <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
+                {% else %}
+                    <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
+                    <a href="{% url 'adoption form' pk=pet.pk %}" class="details-link">Adopt</a>
+                {% endif %}
             </div>
         </div>
         {% endfor %}
