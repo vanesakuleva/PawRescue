@@ -76,7 +76,6 @@ class Pet(models.Model):
         null=True,
         blank=True
 
-
     )
     health_status = models.CharField(
         max_length=MAX_LENGTH,
