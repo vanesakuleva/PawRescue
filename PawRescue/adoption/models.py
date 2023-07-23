@@ -24,6 +24,7 @@ class Adoption(models.Model):
         on_delete=models.CASCADE
     )
 
+
     adoption_date = models.DateField(
         null=True,
         blank=True,
@@ -63,7 +64,6 @@ class Adoption(models.Model):
         choices=STATUS_CHOICES,
         default='Pending'
     )
-
 
     def __str__(self):
         return f"{self.user.username} - {self.pet.name}"

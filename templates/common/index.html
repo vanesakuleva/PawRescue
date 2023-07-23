@@ -20,15 +20,18 @@
             </div>
             <div class="nav-buttons">
                 {% if user.is_authenticated %}
-                <a href="#" class="nav-link">About</a>
-                <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
-                <a href="{% url 'add pet' %}" class="nav-link">Add Post</a>
-                <a href="{% url 'details user' pk=user.pk %}" class="nav-link">Profile</a>
-                <a href="{% url 'logout' %}" class="nav-link">LogOut</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
+                    <a href="#" class="nav-link">Adoption Events</a>
+                    <a href="{% url 'add pet' %}" class="nav-link">Add Post</a>
+                    <a href="{% url 'details user' pk=user.pk %}" class="nav-link">Profile</a>
+                    <a href="{% url 'inbox' %}" class="nav-link">Inbox</a>
+                    <a href="{% url 'logout' %}" class="nav-link">LogOut</a>
                 {% else %}
-                <a href="{% url 'register user' %}" class="nav-link">Register</a>
-                <a href="{% url 'login user' %}" class="nav-link">Login</a>
-                <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
+                    <a href="{% url 'register user' %}" class="nav-link">Register</a>
+                    <a href="{% url 'login user' %}" class="nav-link">Login</a>
+                    <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
+                    <a href="#" class="nav-link">Adoption Events</a>
                 <a href="#" class="nav-link">About</a>
                 {% endif %}
             </div>
