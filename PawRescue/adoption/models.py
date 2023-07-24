@@ -1,5 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils import timezone
+
 from PawRescue.accounts.forms import User
 from PawRescue.pets.models import Pet
 from PawRescue.accounts.models import Account
@@ -7,11 +9,12 @@ from PawRescue.utilities.validators import validate_word_count, validate_digits_
 
 
 class Adoption(models.Model):
+    MAX_LENGTH_CHOICES = 35
     MAX_LENGTH_NUMBER = 10
     STATUS_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Accepted', 'Accepted'),
-        ('Rejected', 'Rejected'),
+        ('Pending', 'Pending - Your Application is Under Review'),
+        ('Accepted', 'Accepted - Expect a Call from the Pet Owner'),
+        ('Rejected', 'Rejected - Thank You for Applying'),
     )
 
     user = models.ForeignKey(
@@ -59,10 +62,17 @@ class Adoption(models.Model):
     )
 
     status = models.CharField(
-        max_length=MAX_LENGTH_NUMBER,
+        max_length=MAX_LENGTH_CHOICES,
         choices=STATUS_CHOICES,
         default='Pending'
+
     )
+    is_approved = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.user.username} - {self.pet.name}"
+
+
+class ApprovedAdoption(models.Model):
+    adoption = models.ForeignKey(Adoption, on_delete=models.CASCADE)
+    approval_date = models.DateTimeField(auto_now_add=True)

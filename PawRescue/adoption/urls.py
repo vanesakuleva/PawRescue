@@ -1,11 +1,10 @@
 from django.urls import path
 
-from PawRescue.adoption.views import AdoptionDetailView
+from PawRescue.adoption.views import AdoptionDetailView, owner_approved_adoptions, ApproveAdoptionView
 
 urlpatterns = [
     path('new/<int:pk>/', AdoptionDetailView.as_view(), name='adoption form'),
-    # path('adoption/admin-approval/', AdminApprovalView.as_view(), name='admin_approval view'),
-    # path('adoption/approve/', ApprovalLogicView.as_view(approval_status='approve'), name='approve adoption'),
-    # path('adoption/reject/', ApprovalLogicView.as_view(approval_status='reject'), name='reject adoption'),
-    # path('adoption/successful/', AdoptionSuccessfulView.as_view(), name='adoption successful view'),
+    path('approve_adoption/<int:adoption_id>/', ApproveAdoptionView.as_view(), name='approve_adoption'),
+
+    path('profile/approved_adoptions/', owner_approved_adoptions, name='owner_approved_adoptions')
  ]

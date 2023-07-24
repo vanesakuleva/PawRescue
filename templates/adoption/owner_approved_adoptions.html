@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Approved Adoption Applications</title>
+</head>
+<body>
+    {% if approved_applications %}
+        <h2>Approved Adoption Applications</h2>
+        <ul>
+            {% for approved_application in approved_applications %}
+                <li>
+                    Pet: {{ approved_application.adoption.pet.name }}<br>
+                    User: {{ approved_application.adoption.user.username }}<br>
+                    <a href="{% url 'adoption_application_detail' approved_application.id %}">View Application Details</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No approved adoption applications available.</p>
+    {% endif %}
+</body>
+
+
