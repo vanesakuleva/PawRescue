@@ -26,7 +26,10 @@ urlpatterns = [
     path('common/', include('PawRescue.common.urls')),
     path('pets/', include('PawRescue.pets.urls')),
     path('adoption/', include('PawRescue.adoption.urls')),
-    path('message/', include('PawRescue.message.urls'))
+    path('messages/', include('postman.urls')),
+    path('messages/', include('PawRescue.messaging.urls', namespace='messaging'))
+
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -37,9 +37,6 @@
             <a href="{% url 'delete pet' pk=object.pk  %}" class="details-link">Delete</a>
 
         </div>
-    {% else %}
-    <div class="details-buttons">
-            <a href="{% url 'create_message' pk=object.pk  %}" class="details-link">Ask a question about {{ object.name }} </a>
     {% endif %}
     </div>
 {% endblock %}

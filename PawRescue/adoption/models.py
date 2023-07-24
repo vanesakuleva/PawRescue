@@ -24,7 +24,6 @@ class Adoption(models.Model):
         on_delete=models.CASCADE
     )
 
-
     adoption_date = models.DateField(
         null=True,
         blank=True,
