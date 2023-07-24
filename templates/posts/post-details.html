@@ -39,7 +39,7 @@
         </div>
     {% else %}
     <div class="details-buttons">
-            <a href="" class="details-link">Ask a question about {{ object.name }} </a>
+            <a href="{% url 'create_message' pk=object.pk  %}" class="details-link">Ask a question about {{ object.name }} </a>
     {% endif %}
     </div>
 {% endblock %}

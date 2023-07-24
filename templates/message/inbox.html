@@ -1,0 +1,21 @@
+{% extends 'common/index.html' %}
+
+{% block content %}
+<h2>Your Inbox</h2>
+<ul>
+  {% for message in recipient_messages %}
+       {% if not  message.answered %}
+    <li>
+      <strong>From:</strong> {{ message.sender.username }} <br>
+      <strong>Subject:</strong> {{ message.subject }} <br>
+      <strong>Body:</strong> {{ message.body }} <br>
+    <a href="{% url 'answer_message' message.pk %}">Answer</a>
+    {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+
+
