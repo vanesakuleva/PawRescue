@@ -13,6 +13,12 @@
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
         <p>Age: {{ object.age }}</p>
+    <a href="{% url 'owner_approved_adoptions' %}">View Approved Adoption Applications</a>
+     {% if pet_owner_adoption %}
+        <a href="{% url 'adoption_application_detail' pet_owner_adoption.id %}">View Adoption Application</a>
+    {% else %}
+        <p>No approved adoption application available.</p>
+    {% endif %}
     {% if adoptions %}
             <h2>Adoption Applications:</h2>
             {% for adoption in adoptions %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adoption Application Detail</title>
+</head>
+<body>
+    {% if approved_adoption %}
+        <h2>Adoption Application for {{ approved_adoption.adoption.pet.name }}</h2>
+        <p>User: {{ approved_adoption.adoption.user }}</p>
+        <!-- Display other application details as needed -->
+    {% else %}
+        <p>No approved adoption application available.</p>
+    {% endif %}
+</body>
+</html>
