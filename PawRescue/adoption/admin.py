@@ -11,10 +11,6 @@ class AdoptionAdmin(admin.ModelAdmin):
     list_display = ('user', 'pet', 'status', 'approve_button')
     list_filter = ('status',)
 
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        return queryset.exclude(status='Rejected')
-
     def approve_button(self, obj):
         if obj.status == 'Pending':
             approve_url = reverse('approve adoption', args=[obj.id]) + '?is_approved=true'
