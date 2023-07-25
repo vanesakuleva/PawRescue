@@ -4,14 +4,15 @@
     <title>Approved Adoption Applications</title>
 </head>
 <body>
-    {% if approved_applications %}
+    {% if approved_adoptions %}
         <h2>Approved Adoption Applications</h2>
         <ul>
-            {% for approved_application in approved_applications %}
+            {% for approved_application in approved_adoptions %}
                 <li>
-                    Pet: {{ approved_application.adoption.pet.name }}<br>
-                    User: {{ approved_application.adoption.user.username }}<br>
-                    <a href="{% url 'adoption_application_detail' approved_application.id %}">View Application Details</a>
+                    Pet: {{ approved_application.pet }}<br>
+                    User: {{ approved_application.user}}<br>
+                    Phone: {{ approved_application.contact_number }}
+
                 </li>
             {% endfor %}
         </ul>

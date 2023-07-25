@@ -1,6 +1,6 @@
 from django.contrib.auth import views
 from django.views.generic.list import ListView
-from django.shortcuts import render
+
 
 from PawRescue.pets.models import Pet
 

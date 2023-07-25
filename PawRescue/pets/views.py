@@ -21,17 +21,11 @@ class DetailsPetView(views.DetailView):
     template_name = 'posts/post-details.html'
     form_class = PetForm
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     pet = self.object.pet
-    #     return context
-
 
 class UpdatePetView(views.UpdateView):
     model = Pet
     form_class = PetForm
     template_name = 'posts/edit-post.html'
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -43,6 +37,7 @@ class UpdatePetView(views.UpdateView):
     def get_success_url(self):
         pk = self.object.pk
         return reverse('details pet', kwargs={'pk': pk})
+
 
 class DeletePetView(views.DeleteView):
     model = Pet

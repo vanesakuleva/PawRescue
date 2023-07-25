@@ -19,12 +19,20 @@ class Adoption(models.Model):
 
     user = models.ForeignKey(
         Account,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='adoptions'
+
     )
 
     pet = models.ForeignKey(
         Pet,
         on_delete=models.CASCADE
+    )
+
+    pet_owner = models.ForeignKey(
+        Account,
+        on_delete=models.CASCADE,
+        related_name='owned_adoptions'
     )
 
     adoption_date = models.DateField(

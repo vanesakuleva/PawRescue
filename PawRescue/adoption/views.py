@@ -1,10 +1,10 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views, generic
 
 from PawRescue.adoption.forms import AdoptionForm
 from PawRescue.adoption.models import Adoption, ApprovedAdoption
+from PawRescue.pets.models import Pet
 
 
 class AdoptionDetailView(generic.CreateView):
@@ -15,41 +15,43 @@ class AdoptionDetailView(generic.CreateView):
 
     def form_valid(self, form):
         pet_id = self.kwargs['pk']
-        form.instance.pet_id = pet_id
+        pet = get_object_or_404(Pet, id=pet_id)
+        form.instance.pet_id = pet.pk
         form.instance.user = self.request.user
+        form.instance.pet_owner = pet.created_by
         form.instance.status = 'Pending'
         return super().form_valid(form)
 
 
 class ApproveAdoptionView(views.View):
     def get(self, request, adoption_id):
-        # Get the adoption instance based on the provided adoption_id
         adoption = get_object_or_404(Adoption, id=adoption_id)
 
-        # Check if the admin has approved the adoption
         if 'is_approved' in request.GET:
-            adoption.status = 'Accepted'  # Set the status to 'Accepted'
+            adoption.status = 'Accepted'
             adoption.save()
-
-            # Create an ApprovedAdoption entry for the approved adoption
             ApprovedAdoption.objects.create(adoption=adoption)
-
-            # Redirect to the change page of the ApprovedAdoption model in the admin panel
             change_url = reverse(
                 'admin:%s_%s_change' % (ApprovedAdoption._meta.app_label, ApprovedAdoption._meta.model_name),
                 args=[adoption_id])
             return redirect(change_url)
 
-        # Redirect back to the admin homepage if not approved
         return redirect(reverse('admin:index'))
 
-    # For handling post requests as well (optional)
     def post(self, request, adoption_id):
         return self.get(request, adoption_id)
 
 
-@login_required
-def owner_approved_adoptions(request):
-    user = request.user
-    approved_adoptions = ApprovedAdoption.objects.filter(adoption__user=user)
-    return render(request, 'adoption/owner_approved_adoptions.html', {'approved_adoptions': approved_adoptions})
+class OwnerApprovedAdoptionsView(views.View):
+    template_name = 'adoption/owner_approved_adoptions.html'
+
+    def get(self, request):
+        pet_pk = request.GET.get('pet_pk')
+        pet = get_object_or_404(Pet, pk=pet_pk)
+        pet_owner = pet.created_by
+
+        if request.user == pet_owner:
+            approved_adoptions = Adoption.objects.filter(pet_owner=pet_owner, status='Accepted')
+            return render(request, self.template_name, {'approved_adoptions': approved_adoptions})
+
+# owner_approved_adoptions = login_required(OwnerApprovedAdoptionsView.as_view())
