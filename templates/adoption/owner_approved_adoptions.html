@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+{% extends 'common/index.html' %}
 
+{% block content %}
 <head>
     <title>Approved Adoption Applications</title>
 </head>
@@ -9,16 +10,20 @@
         <ul>
             {% for approved_application in approved_adoptions %}
                 <li>
+
                     Pet: {{ approved_application.pet }}<br>
                     User: {{ approved_application.user}}<br>
                     Phone: {{ approved_application.contact_number }}
+                 <a href="{% url 'more info' pk=approved_application.pk %}">View more information about the candidate</a>
+
 
                 </li>
             {% endfor %}
         </ul>
     {% else %}
+
         <p>No approved adoption applications available.</p>
     {% endif %}
 </body>
 
-
+{% endblock %}
