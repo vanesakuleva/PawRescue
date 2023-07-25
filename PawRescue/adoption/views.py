@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views, generic
@@ -42,16 +43,20 @@ class ApproveAdoptionView(views.View):
         return self.get(request, adoption_id)
 
 
-class OwnerApprovedAdoptionsView(views.View):
+def get_approved_adoptions_for_user(user):
+    pets_owned_by_user = Pet.objects.filter(created_by=user)
+    return Adoption.objects.filter(pet__in=pets_owned_by_user, status='Accepted')
+
+
+class OwnerApprovedAdoptionsView(LoginRequiredMixin, views.ListView):
     template_name = 'adoption/owner_approved_adoptions.html'
+    context_object_name = 'approved_adoptions'
 
-    def get(self, request):
-        pet_pk = request.GET.get('pet_pk')
-        pet = get_object_or_404(Pet, pk=pet_pk)
-        pet_owner = pet.created_by
+    def get_queryset(self):
+        return get_approved_adoptions_for_user(self.request.user)
 
-        if request.user == pet_owner:
-            approved_adoptions = Adoption.objects.filter(pet_owner=pet_owner, status='Accepted')
-            return render(request, self.template_name, {'approved_adoptions': approved_adoptions})
 
-# owner_approved_adoptions = login_required(OwnerApprovedAdoptionsView.as_view())
+class MoreInfo(LoginRequiredMixin, views.DetailView):
+    model = Adoption
+    template_name = 'adoption/adoption_details.html'
+    context_object_name = 'adoption'
