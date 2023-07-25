@@ -1,0 +1,30 @@
+{% extends 'common/index.html' %}
+s
+{% block content %}
+
+<h2>Adoption Details</h2>
+    <ul>
+        <li>
+            Pet: {{ adoption.pet }}
+        </li>
+        <li>
+            User: {{ adoption.user }}
+        </li>
+        <li>
+            Phone: {{ adoption.contact_number }}
+        </li>
+        <li>
+            Home Environment: {{ adoption.home_environment}}
+        </li>
+        <li>
+            Previous Pet Experience: {{ adoption.previous_pet_experience }}
+        </li>
+            <li>
+            Reason for adoption: {{ adoption.reason_for_adoption }}
+        </li>
+
+    </ul>
+
+
+
+{% endblock %}

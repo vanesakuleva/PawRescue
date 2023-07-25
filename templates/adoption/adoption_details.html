@@ -2,29 +2,22 @@
 s
 {% block content %}
 
-<h2>Adoption Details</h2>
-    <ul>
-        <li>
-            Pet: {{ adoption.pet }}
-        </li>
-        <li>
-            User: {{ adoption.user }}
-        </li>
-        <li>
-            Phone: {{ adoption.contact_number }}
-        </li>
-        <li>
-            Home Environment: {{ adoption.home_environment}}
-        </li>
-        <li>
-            Previous Pet Experience: {{ adoption.previous_pet_experience }}
-        </li>
-            <li>
-            Reason for adoption: {{ adoption.reason_for_adoption }}
-        </li>
-
-    </ul>
-
-
+<head>
+    <title>Adopt</title>
+</head>
+<body>
+    <h2>Adopt</h2>
+    <form class="form" method="post" action="">
+            {% csrf_token %}
+           {% for field in form %}
+                <div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            {{ form.errors }}
+        <button type="submit">Send</button>
+    </form>
+</body>
 
 {% endblock %}

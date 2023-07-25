@@ -58,5 +58,5 @@ class OwnerApprovedAdoptionsView(LoginRequiredMixin, views.ListView):
 
 class MoreInfo(LoginRequiredMixin, views.DetailView):
     model = Adoption
-    template_name = 'adoption/adoption_details.html'
+    template_name = 'adoption/adoption_application_detail.html'
     context_object_name = 'adoption'
