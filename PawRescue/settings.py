@@ -45,7 +45,9 @@ PAW_RESCUE_APPS = (
     'PawRescue.accounts',
     'PawRescue.common',
     'PawRescue.pets',
-    'PawRescue.adoption'
+    'PawRescue.adoption',
+    'PawRescue.events',
+
 
 
 )
