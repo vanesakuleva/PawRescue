@@ -13,8 +13,8 @@
         <p>Last Name: {{ object.last_name }}</p>
         <p>Email: {{ object.user.email }}</p>
         <p>Age: {{ object.age }}</p>
-    <a href="{% url 'owner approved adoptions' %}">View Approved Adoption Applications</a>
-
+    <a href="{% url 'owner approved adoptions' %}">View Approved from admin Adoption Applications</a>
+<   <a href="{% url 'owner approved adoptions' %}">View Approved from admin Adoption Applications</a>
     {% if adoptions %}
             <h2>Adoption Applications:</h2>
             {% for adoption in adoptions %}
