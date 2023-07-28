@@ -1,0 +1,20 @@
+{% extends 'common/index.html' %}
+
+{% block content %}
+<head>
+    <title> My Adoption Applications</title>
+</head>
+<body>
+        {% if adoptions %}
+            <h2>Adoption Applications:</h2>
+            {% for adoption in adoptions %}
+                <p><strong>Pet:</strong> {{ adoption.pet.name }}</p>
+                <p><strong>Status:</strong> {{ adoption.status }}</p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No adoption applications filled yet.</p>
+        {% endif %}
+</body>
+
+{% endblock %}
