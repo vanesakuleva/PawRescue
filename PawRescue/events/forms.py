@@ -31,16 +31,19 @@ class AdoptionEventForm(forms.ModelForm):
         help_text='Enter custom hashtags separated by commas.'
     )
 
-    def clean_hashtags(self):
-        selected_hashtags = self.cleaned_data['hashtags']
-        custom_hashtags = self.cleaned_data['custom_hashtags']
+    def clean(self):
+        cleaned_data = super().clean()
+        selected_hashtags = cleaned_data.get('hashtags', [])
+        custom_hashtags = cleaned_data.get('custom_hashtags', '').strip()
 
         if custom_hashtags:
             # Combine the selected choices with custom hashtags
             selected_hashtags += custom_hashtags.split(',')
 
-        return selected_hashtags
+        cleaned_data['hashtags'] = selected_hashtags
+        return cleaned_data
 
     class Meta:
         model = AdoptionEvent
-        fields = ['name', 'description', 'location', 'start_date', 'end_date', 'organizer', 'image', 'participant_count', 'hashtags']
+        fields = ['name', 'description', 'location', 'start_date', 'end_date', 'organizer', 'photo',
+                  'participant_count', 'hashtags', 'custom_hashtags']
