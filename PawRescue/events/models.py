@@ -8,13 +8,15 @@ from PawRescue.utilities.validators import validate_word_count
 
 class AdoptionEvent(models.Model):
     MAX_LENGTH = 50
-
+    MAX_LENGTH_HASHTAGS = 200
     name = models.CharField(
         max_length=MAX_LENGTH
     )
 
     description = models.TextField(
-        validators=[validate_word_count]
+        validators=[validate_word_count],
+        blank=False,
+        null=False
     )
 
     location = models.CharField(
@@ -31,9 +33,24 @@ class AdoptionEvent(models.Model):
 
     )
 
-    organizers = models.ManyToManyField(
+    photo = models.ImageField(
+        upload_to='event_photos/',
+        blank=True,
+        null=True
+
+    )
+
+    organizer = models.ForeignKey(
         User,
-        related_name='organized_events',
+        on_delete=models.CASCADE
+    )
+
+    participant_count = models.PositiveIntegerField(
+        default=0
+    )
+
+    hashtags = models.CharField(
+        max_length=MAX_LENGTH_HASHTAGS,
         blank=True
     )
 
