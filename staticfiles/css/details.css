@@ -17,11 +17,6 @@
     color: #fff;
 }
 
-.details-buttons {
-    margin-top: 20px;
+.details-buttons, .adoption-buttons {
+    margin-top: 40px;
 }
-
-.details-link + .details-link {
-    margin-left: 10px;
-}
-

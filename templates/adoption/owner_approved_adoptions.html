@@ -1,29 +1,26 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-<head>
-    <title>Approved Adoption Applications</title>
-</head>
-<body>
-    {% if approved_adoptions %}
-        <h2>Approved Adoption Applications</h2>
-        <ul>
+
+
+ <div class="form-pets">
+    <h2> Approved Adoption Applications</h2>
+    <div class="pet-cards">
+        {% if approved_adoptions %}
             {% for approved_application in approved_adoptions %}
-                <li>
-
-                    Pet: {{ approved_application.pet }}<br>
-                    User: {{ approved_application.user}}<br>
-                    Phone: {{ approved_application.contact_number }}
-                 <a href="{% url 'more info' pk=approved_application.pk %}">View more information about the candidate</a>
-
-
-                </li>
+                <div class="pet-card">
+                    <p>Pet: {{ approved_application.pet }}</p>
+                    <p>User: {{ approved_application.user }}</p>
+                    <p>Phone: {{ approved_application.contact_number }}</p>
+                    <div class="details-buttons">
+                        <a href="{% url 'more info' pk=approved_application.pk %}" class="details-link">View more information about the candidate</a>
+                    </div>
+                </div>
             {% endfor %}
-        </ul>
-    {% else %}
-
-        <p>No approved adoption applications available.</p>
-    {% endif %}
-</body>
+        {% else %}
+            <p>No approved adoption applications available.</p>
+        {% endif %}
+   </div>
+ </div>
 
 {% endblock %}

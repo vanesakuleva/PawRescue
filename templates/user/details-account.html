@@ -3,24 +3,28 @@
 {% block content %}
     <div class="form">
 
-
         {% if object.profile_picture %}
             <img src="{{ object.profile_picture }}" alt="" width="200" height="200">
         {% else %}
-        <img src="{% static 'images/default_profile_picture.png' %}" alt="" width="200" height="200">
+            <img src="{% static 'images/default_profile_picture.png' %}" alt="" width="200" height="200">
         {% endif %}
-        <p>First Name: {{ object.first_name }}</p>
-        <p>Last Name: {{ object.last_name }}</p>
-        <p>Email: {{ object.user.email }}</p>
-        <p>Age: {{ object.age }}</p>
-    <a href="{% url 'owner approved adoptions' %}">View Approved from admin Adoption Applications</a>
-<   <a href="{% url 'owner approved adoptions' %}">View Approved from admin Adoption Applications</a>
+        <p><strong>First Name:</strong> {{ object.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ object.last_name }}</p>
+        <p><strong>Email:</strong> {{ object.user.email }}</p>
+        <p><strong>Age:</strong> {{ object.age }}</p>
+
+        <div class="adoption-buttons">
+            <a href="{% url 'owner approved adoptions' %}" class="details-link">View Approved Applications for My Pets</a>
+        </div>
+
+        <div class="adoption-buttons">
+            <a href="{% url 'my adoptions candidature' %}" class="details-link">View My Adoption Applications for Other Pets</a>
+        </div>
 
         <div class="details-buttons">
             <a href="{% url 'edit user' pk=user.pk %}" class="details-link">Edit</a>
             <a href="{% url 'delete user' pk=user.pk  %}" class="details-link">Delete</a>
             <a href="{% url 'change password' pk=user.pk  %}" class="details-link">Change Password</a>
-
         </div>
     </div>
 {% endblock %}

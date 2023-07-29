@@ -1,20 +1,23 @@
 {% extends 'common/index.html' %}
 
 {% block content %}
-<head>
-    <title> My Adoption Applications</title>
-</head>
-<body>
-        {% if my_approved_adoptions %}
-            <h2>Adoption Applications:</h2>
-            {% for adoption in my_approved_adoptions %}
-                <p><strong>Pet:</strong> {{ adoption.pet.name }}</p>
-                <p><strong>Status:</strong> {{ adoption.status }}</p>
-                <hr>
-            {% endfor %}
-        {% else %}
-            <p>No adoption applications filled yet.</p>
-        {% endif %}
-</body>
+
+
+
+  <div class="form-pets">
+    <h2>My Adoption Applications</h2>
+        <div class="pet-cards">
+            {% if my_adoptions_applications %}
+                {% for adoption in my_adoptions_applications %}
+                    <div class="pet-card">
+                        <p><strong>Pet:</strong> {{ adoption.pet.name }}</p>
+                        <p><strong>Status:</strong> {{ adoption.status }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No adoption applications filled yet.</p>
+            {% endif %}
+        </div>
+  </div>
 
 {% endblock %}
