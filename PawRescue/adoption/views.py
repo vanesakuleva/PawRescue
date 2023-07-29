@@ -62,10 +62,11 @@ class MoreInfo(LoginRequiredMixin, views.DetailView):
     context_object_name = 'adoption'
 
 
-class MyApprovedAdoptionsView(LoginRequiredMixin, views.ListView):
+class MyApprovedAdoptionsView(LoginRequiredMixin, generic.ListView):
     template_name = 'adoption/my_adoption_application.html'
     context_object_name = 'my_approved_adoptions'
+    model = Adoption
 
-    # def get_queryset(self):
-
-# da si napravq view za tozi put
+    def get_queryset(self):
+        user = self.request.user
+        return Adoption.objects.filter(user=user)
