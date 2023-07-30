@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Edit Post</h2>
-    <form class="form" method="post" action="">
+    <form class="form" method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
            {% for field in form %}
                 <div>
