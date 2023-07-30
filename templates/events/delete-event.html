@@ -1,0 +1,10 @@
+{% extends 'common/index.html' %}
+
+{% block content %}
+  <title>Delete Account</title>
+  <h2>Are you sure you want to delete the post about {{ object.name }}</h2>
+  <form class="form" method="post">
+    {% csrf_token %}
+    <button  type="submit">Yes, Delete the post</button>
+  </form>
+{% endblock %}
