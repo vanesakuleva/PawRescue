@@ -70,16 +70,34 @@
 }
 
 .footer {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #d5b48c;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    padding: 15px;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #fff;
 }
 
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #d48b50;
+    transition: background-color 0.2s ease;
+}
+
+.footer a:hover {
+    background-color: #1c1106;
+}
+
+
+.footer a:not(:last-child) {
+    margin-right: 10px;
+}
 @media (min-width: 768px) {
     .navigation button {
         padding: 0 40px;
