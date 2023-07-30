@@ -1,7 +1,7 @@
 from django.contrib.auth import views
 from django.views.generic.list import ListView
 
-
+from PawRescue.events.models import AdoptionEvent
 from PawRescue.pets.models import Pet
 
 
@@ -10,7 +10,7 @@ class IndexView(views.TemplateView):
     context_object_name = 'user'
 
 
-class PetsCatalog(ListView):
+class PetsCatalogView(ListView):
     template_name = 'common/pet-posts.html'
 
     def get_queryset(self):
@@ -20,3 +20,9 @@ class PetsCatalog(ListView):
         context = super().get_context_data(**kwargs)
         context['pets'] = Pet.objects.all()
         return context
+
+
+class EventCatalogView(ListView):
+    model = AdoptionEvent
+    template_name = 'common/adoption_events.html'
+    context_object_name = 'events'

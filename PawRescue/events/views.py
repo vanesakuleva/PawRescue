@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic as views
 
 from PawRescue.events.forms import AdoptionEventForm
 from PawRescue.events.models import AdoptionEvent
 
 
-class AdoptionEventCreateView(generic.FormView):
+class AdoptionEventCreateView(views.FormView):
     template_name = 'events/create_adoption_event.html'
     form_class = AdoptionEventForm
     success_url = reverse_lazy('index')
@@ -18,7 +18,16 @@ class AdoptionEventCreateView(generic.FormView):
         return super().form_valid(form)
 
 
-class EventCatalogView(generic.ListView):
+class DeleteEventView(views.DeleteView):
     model = AdoptionEvent
-    template_name = 'events/adoption_events.html'
-    context_object_name = 'events'
+    template_name = 'posts/delete-post.html'
+    success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        if 'next' in self.request.POST:
+            return self.request.POST['next']
+        return self.success_url
+
+    def delete(self, request, *args, **kwargs):
+        self.object.delete()
+        return redirect(self.get_success_url())
