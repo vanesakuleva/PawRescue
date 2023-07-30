@@ -64,32 +64,6 @@
     border: 2px solid #1f1f30;
 }
 
-.navigation button.dropbtn {
-    background-color: #e99056;
-    border: 2px solid #1c1106;
-    border-radius: 8px;
-    color: #1c1106;
-    cursor: pointer;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    height: 48px;
-    margin: 0 10px;
-    padding: 0 25px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-}
-
-.navigation button.dropbtn:hover {
-    background: #1c1106;
-    color: #fff;
-}
-
-.navigation button.dropbtn:focus {
-    background: #d5b48c;
-    border: 2px solid #1f1f30;
-}
-
 .user button,
 .guest button {
     margin: 0;
