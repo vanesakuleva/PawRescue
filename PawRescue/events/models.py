@@ -6,16 +6,6 @@ from PawRescue.accounts.models import Account
 from PawRescue.utilities.validators import validate_word_count
 
 
-class Hashtag(models.Model):
-    MAX_LENGTH = 50
-    name = models.CharField(
-        max_length=MAX_LENGTH
-    )
-
-    def __str__(self):
-        return self.name
-
-
 class AdoptionEvent(models.Model):
     MAX_LENGTH = 50
     MAX_LENGTH_HASHTAGS = 200
@@ -58,10 +48,6 @@ class AdoptionEvent(models.Model):
     participant_count = models.PositiveIntegerField(
         default=0
     )
-
-    hashtags = models.ManyToManyField(
-        Hashtag,
-        blank=True)
 
     def __str__(self):
         return self.name
