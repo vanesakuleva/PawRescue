@@ -3,7 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
 from PawRescue.events.forms import AdoptionEventForm
-from PawRescue.events.models import AdoptionEvent, EventPet
+from PawRescue.events.models import AdoptionEvent
 
 
 class AdoptionEventCreateView(views.FormView):
@@ -38,14 +38,6 @@ class UpdateEventView(views.UpdateView):
         event = form.save(commit=False)
         event.organizer = self.request.user
         event.save()
-        selected_pets = form.cleaned_data.get('selected_pets')
-        if selected_pets:
-
-            EventPet.objects.filter(event=event).delete()
-
-            for pet in selected_pets:
-                event_pet = EventPet.objects.create(event=event, pet=pet)
-
         return super().form_valid(form)
 
 

@@ -53,16 +53,3 @@ class AdoptionEvent(models.Model):
         return self.name
 
 
-class EventPet(models.Model):
-    event = models.ForeignKey(
-        AdoptionEvent,
-        on_delete=models.CASCADE
-    )
-
-    pet = models.ForeignKey(
-        Pet,
-        on_delete=models.CASCADE
-    )
-
-    def __str__(self):
-        return f"{self.event} - {self.pet}"
