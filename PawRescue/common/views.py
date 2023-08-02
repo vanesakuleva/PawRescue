@@ -1,4 +1,5 @@
 from django.contrib.auth import views
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.list import ListView
 
@@ -29,6 +30,7 @@ class EventCatalogView(ListView):
     context_object_name = 'events'
 
 
+@login_required
 def add_participant(request, event_id):
     event = get_object_or_404(AdoptionEvent, id=event_id)
     if request.user.is_authenticated:
@@ -36,6 +38,7 @@ def add_participant(request, event_id):
     return redirect('event catalog')
 
 
+@login_required
 def remove_participant(request, event_id):
     event = get_object_or_404(AdoptionEvent, id=event_id)
     if request.user.is_authenticated:
