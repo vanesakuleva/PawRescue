@@ -47,6 +47,7 @@ PAW_RESCUE_APPS = (
     'PawRescue.pets',
     'PawRescue.adoption',
     'PawRescue.events',
+    'PawRescue.volunteers'
 
 
 
