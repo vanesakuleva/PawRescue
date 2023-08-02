@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic as views
 
@@ -15,11 +15,23 @@ class AdoptionEventCreateView(views.FormView):
         event = form.save(commit=False)
         event.organizer = self.request.user
         event.save()
-        selected_pets = form.cleaned_data.get('selected_pets')
-        if selected_pets:
-            for pet in selected_pets:
-                event_pet = EventPet.objects.create(event=event, pet=pet)
         return super().form_valid(form)
+
+
+def join_event(request, event_id):
+    if request.user.is_authenticated:
+        event = get_object_or_404(AdoptionEvent, pk=event_id)
+        if request.user in event.participants.all():
+
+            event.participants.remove(request.user)
+            event.participant_count -= 1
+        else:
+            event.participants.add(request.user)
+            event.participant_count += 1
+        event.save()
+
+        return redirect('event-detail', pk=event.pk)
+    return redirect('login')
 
 
 class UpdateEventView(views.UpdateView):

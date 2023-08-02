@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 from PawRescue.accounts.forms import User
@@ -45,9 +46,17 @@ class AdoptionEvent(models.Model):
         on_delete=models.CASCADE
     )
 
+    participants = models.ManyToManyField(
+        User,
+        related_name='events_participating',
+        blank=True
+    )
+
     participant_count = models.PositiveIntegerField(
         default=0
     )
+
+
 
     def __str__(self):
         return self.name
