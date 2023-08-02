@@ -1,6 +1,4 @@
-from django.contrib.auth import get_user_model
 from django.db import models
-
 from PawRescue.accounts.forms import User
 from PawRescue.pets.models import Pet
 from PawRescue.accounts.models import Account
@@ -52,13 +50,5 @@ class AdoptionEvent(models.Model):
         blank=True
     )
 
-    participant_count = models.PositiveIntegerField(
-        default=0
-    )
-
-
-
     def __str__(self):
         return self.name
-
-
