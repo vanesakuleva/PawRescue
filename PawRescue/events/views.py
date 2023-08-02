@@ -18,22 +18,6 @@ class AdoptionEventCreateView(views.FormView):
         return super().form_valid(form)
 
 
-def join_event(request, event_id):
-    if request.user.is_authenticated:
-        event = get_object_or_404(AdoptionEvent, pk=event_id)
-        if request.user in event.participants.all():
-
-            event.participants.remove(request.user)
-            event.participant_count -= 1
-        else:
-            event.participants.add(request.user)
-            event.participant_count += 1
-        event.save()
-
-        return redirect('event-detail', pk=event.pk)
-    return redirect('login')
-
-
 class UpdateEventView(views.UpdateView):
     model = AdoptionEvent
     form_class = AdoptionEventForm

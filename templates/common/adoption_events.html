@@ -13,19 +13,16 @@
         <p>Location: {{ event.location }}</p>
         <p>Start Date: {{ event.start_date }}</p>
         <p>End Date: {{ event.end_date }}</p>
-      {% if request.user.is_authenticated %}
-          {% if event.participants.filter(pk=request.user.pk).exists %}
-            <form method="post" action="{% url 'leave_event' event.pk %}">
-              {% csrf_token %}
-              <button type="submit">Leave Event</button>
-            </form>
-          {% else %}
-            <form method="post" action="{% url 'join_event' event.pk %}">
-              {% csrf_token %}
-              <button type="submit">Join Event</button>
-            </form>
-          {% endif %}
+      <p>Number of People Going: {{ event.participants.count }}</p>
+        {% if user.is_authenticated %}
+            {% if user in event.participants.all %}
+                <a href="{% url 'remove participant' event_id=event.id %}">Remove from Participants</a>
+            {% else %}
+                <a href="{% url 'add participant' event_id=event.id %}">Join Event</a>
         {% endif %}
+        {% else %}
+            <p>Login to participate in this event.</p>
+    {% endif %}
       {% if request.user == event.organizer %}
         <div class="details-buttons">
             <a href="{% url 'edit event' pk=event.pk %}" class="details-link">Edit</a>
