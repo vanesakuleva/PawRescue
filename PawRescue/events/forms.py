@@ -5,14 +5,9 @@ from PawRescue.pets.models import Pet
 
 
 class AdoptionEventForm(forms.ModelForm):
-    selected_pets = forms.ModelMultipleChoiceField(
-        queryset=Pet.objects.all(),
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
-    )
     class Meta:
         model = AdoptionEvent
-        exclude = ['organizer', 'participant_count']
+        exclude = ['organizer', 'participant_count', 'participants']
 
         widgets = {
             'photo': forms.FileInput()

@@ -1,6 +1,30 @@
-<h1>Volunteer Application Form</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
+{% extends 'common/index.html' %}
+
+{% block content %}
+
+<h2>Volunteer Application Form</h2>
+      <form class="form" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+             {% for field in form %}
+                <div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+        {% if form.errors %}
+    <div class="error-message">
+        <strong>Oops! There are some errors:</strong>
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+            <button type="submit">Submit</button>
+        </form>
+{% endblock %}
