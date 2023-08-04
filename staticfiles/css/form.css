@@ -53,15 +53,21 @@
     font-family: 'Quicksand', cursive;
 }
 
+.form-field {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
 .form input,
-.form textarea {
+.form textarea,
+.form select {
     background: #f4efec;
     border-radius: 10px;
     outline: 0;
     border: 1px solid #e6e6e6;
     width: 100%;
     height: 50px;
-    margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
@@ -72,6 +78,12 @@
     font-weight: normal;
     color: #1c1106;
     font-family: 'Quicksand', sans-serif;
+}
+.form label {
+    font-weight: normal;
+    color: #1c1106;
+    font-family: 'Quicksand', sans-serif;
+    margin-bottom: 5px;
 }
 
 .form button {
