@@ -41,13 +41,46 @@
         </nav>
     </header>
     <main>
-        {% block content %}
+{% block content %}
+<div class="welcome-section">
+    <p class="welcome-text">Welcome to our Pet Rescue Website!</p>
+    <div class="action-section">
         {% if user.is_authenticated %}
-        <div class="welcome-text">
-            <p>Welcome to our pet rescue website, where compassion and care come together to find loving homes for adorable furry friends.</p>
+        <div class="action-item">
+            <img src="{% static 'images/volunteer.jpg' %}" alt="Volunteer Image">
+            <p>If you want to help us, apply to become a volunteer and make a difference in the lives of pets in need.</p>
+            <a href="{% url 'volunteer application' %}" class="action-btn">Apply for Volunteer</a>
         </div>
-        {% endif %}
-        {% endblock %}
+        <div class="action-item">
+            <img src="{% static 'images/adopt.jpg' %}" alt="Adopt Image">
+            <p>If you want to be a forever home for a pet, browse our available pets and find your new furry friend.</p>
+            <a href="{% url 'pet catalog' %}" class="action-btn">See Our Pets</a>
+        </div>
+        <div class="action-item">
+            <img src="{% static 'images/event.png' %}" alt="Events Image">
+            <p>If you want to hug and walk pets, join our events and support pets in need with your presence.</p>
+            <a href="{% url 'event catalog' %}" class="action-btn">About Our Events</a>
+        </div>
+        {% else %}
+             <div class="action-item">
+                    <img src="{% static 'images/register.jpg' %}" alt="Register Image">
+                    <p>If you are new here, create an account to start your journey as a pet lover and supporter.</p>
+                    <a href="{% url 'register user' %}" class="action-btn">Register</a>
+                </div>
+                <div class="action-item">
+                    <img src="{% static 'images/login.jpg' %}" alt="Login Image">
+                    <p>If you are already a member, log in to your account and continue your adventure with us.</p>
+                    <a href="{% url 'login user' %}" class="action-btn">Login</a>
+                </div>
+                <div class="action-item">
+                    <img src="{% static 'images/see_pets.jpg' %}" alt="See Pets Image">
+                    <p>Explore our adorable pets waiting for their forever homes. Find your new furry companion today!</p>
+                    <a href="{% url 'pet catalog' %}" class="action-btn">See Pets</a>
+                </div>
+            </div>
+    </div>
+    {% endif %}
+{% endblock %}
     </main>
     <footer class="footer">
         <p>&copy; 2023 PawRescue. Vanesa Kuleva.</p>

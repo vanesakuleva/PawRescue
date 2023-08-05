@@ -1,48 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 body {
     background-attachment: fixed;
     background-position: center;
     background-size: auto 100%;
     font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding-bottom: 80px;
+}
+h2 {
+  font-size: 36px;
+  color: #5e3817;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgba(213, 180, 140, 0.7);
+  padding: 10px;
 }
 
 #dashboard {
-  margin: 50px;
-  display: flex;
-  align-items: center;
-  justify-content:center ;
-  flex-wrap: wrap;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
- h2 {
-     position: relative;
-     text-align: center;
-     font-size: 50px;
-     color: rgb(88, 68, 42);
-     background-color: #d5b48c;
-     padding: 10px;
-     border-radius: 10px;
-     margin: 0 auto;
-     max-width: 40%;
-     font-family: 'Quicksand', cursive;
- }
+.welcome-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
 .welcome-text {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #f4efec;
-    background-color: rgb(213, 180, 140);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 30px auto;
-    max-width: 800px;
+   font-size: 36px;
+  color: #5e3817; /
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgba(213, 180, 140, 0.7);
+  padding: 10px;
+}
+
+.action-section {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
 }
 
 
+.action-item {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    text-align: center;
+   background-color: rgba(213, 180, 140, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
 
+.action-item img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
+.action-item p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #5d3819;
+}
 
+.action-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #e99056;
+    color: #1c1106;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
 
-
+.action-btn:hover {
+    background-color: #1c1106;
+    color: #fff;
+}

@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+/* Styles for the overall navigation container */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Styles for the logo */
 .logo {
     display: inline-flex;
     align-items: center;
@@ -25,7 +27,7 @@
     margin-left: 15px;
 }
 
-/* Styles for navigation bar */
+/* Styles for the navigation bar */
 .navigation {
     background-color: #d5b48c;
     text-align: center;
@@ -35,12 +37,18 @@
     margin-bottom: 20px;
 }
 
-/* Styles for navigation links */
+/* Styles for the navigation links */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
 .nav-link {
     color: #fff;
     text-decoration: none;
     padding: 15px 25px;
-    margin: 0 5px;
+    margin: 5px;
     border-radius: 8px;
     font-size: 16px;
     background-color: #d48b50;
@@ -49,17 +57,6 @@
 
 .nav-link:hover {
     background-color: #1c1106;
-}
-
-/* Styles for user and guest navigation sections */
-.user {
-    display: flex;
-    justify-content: center;
-}
-
-.guest {
-    display: flex;
-    justify-content: center;
 }
 
 /* Styles for navigation buttons */
@@ -72,50 +69,25 @@
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     height: 48px;
-    margin: 0 10px;
+    margin: 5px;
     padding: 0 25px;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.2s ease;
 }
-@media (max-width: 600px) {
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    .navigation button {
-        margin: 5px;
-    }
-}
-
-.navigation button:hover {
-    background: #1c1106;
-    color: #fff;
-}
-
-.navigation button:focus {
-    background: #d5b48c;
-    border: 2px solid #1f1f30;
-}
-
-.user button,
-.guest button {
-    margin: 0;
-}
-
-/* Styles for footer */
 .footer {
     background-color: #d5b48c;
     text-align: center;
     padding: 15px;
     font-family: 'Quicksand', sans-serif;
     border-radius: 10px;
-    margin-top: 20px;
     color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-
 .footer a {
     color: #fff;
     text-decoration: none;
@@ -134,8 +106,15 @@
     margin-right: 10px;
 }
 
-@media (min-width: 768px) {
+/* Styles for responsive navigation on small screens */
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link,
     .navigation button {
-        padding: 0 40px;
+        width: 100%;
     }
 }

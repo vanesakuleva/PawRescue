@@ -9,7 +9,7 @@
 }
 
 .form {
-    background-color: #d5b48c;
+    background-color: rgba(213, 180, 140, 0.7);
     max-width: 440px;
     margin: 50px auto;
     padding: 45px;
@@ -162,30 +162,6 @@
     text-decoration: none;
 }
 
-
-
-#search .form h2 {
-    margin-top: -40px;
-    margin-bottom: 0px;
-    font-size: 30px;
-    color: #1f0710;
-    font-family: 'Quicksand', cursive;
-}
-
-.search-result > .pet {
-    scale: 0.5;
-}
-
-.search-result {
-    margin-top: -50px;
-    display: flex;
-}
-
-.no-result {
-    margin-top: 8rem;
-    font-size: 30px;
-}
-
 .form label {
     margin-bottom: 10px;
 }
@@ -257,29 +233,36 @@
   text-decoration: none;
 }
 
-
 .pet-cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
 }
 
 .pet-card {
-  background: #d5b48c;
+  background-color: rgba(213, 180, 140, 0.7);
   width: calc(33.33% - 20px);
-  margin-bottom: 20px;
+  margin: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  max-width: 300px;
 }
 
-.pet-card img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: contain;
-  border-radius: 5px;
+
+@media (max-width: 900px) {
+  .pet-card {
+    width: calc(50% - 20px);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .pet-card {
+    width: 100%;
+  }
 }
 
 .details-buttons {
@@ -306,7 +289,7 @@
 }
 
 .event {
-  background: #d5b48c;
+  background-color: rgba(213, 180, 140, 0.7);
   flex: 0 0 calc(33.33% - 20px);
   margin-bottom: 20px;
   padding: 10px;
