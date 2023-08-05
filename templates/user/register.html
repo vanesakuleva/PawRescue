@@ -5,7 +5,7 @@
         <h2 class="profile">Create Profile</h2>
         <form class="form" method="post" action="">
              {% for field in form %}
-                <div>
+                <div class="form-field">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                     {{ field }}
                 </div>
