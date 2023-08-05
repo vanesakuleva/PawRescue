@@ -14,6 +14,9 @@
 <body style="background-image: url('{% static 'images/background.jpg' %}')">
     <header>
     <nav class="navigation">
+        <a href="{% url 'index' %}" class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="PawRescue Logo" />
+        </a>
       {% if user.is_authenticated %}
         <div class="user">
           <a href="{% url 'volunteer application' %}" class="nav-link">Become a Volunteer</a>

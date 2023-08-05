@@ -103,3 +103,13 @@
         padding: 0 40px;
     }
 }
+
+.logo-container {
+    display: block;
+    margin-bottom: 10px;
+    }
+
+.logo img {
+    width: 100px;
+    height: auto;
+    }
