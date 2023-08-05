@@ -8,34 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PawRescue</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}" >
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
 </head>
 
 <body style="background-image: url('{% static 'images/background.jpg' %}')">
     <header>
-    <nav class="navigation">
-        <a href="{% url 'index' %}" class="logo">
-            <img src="{% static 'images/logo.png' %}" alt="PawRescue Logo" />
-        </a>
-      {% if user.is_authenticated %}
-        <div class="user">
-          <a href="{% url 'volunteer application' %}" class="nav-link">Become a Volunteer</a>
-          <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
-          <a href="{% url 'add pet' %}" class="nav-link">Add Pet for Adoption</a>
-          <a href="{% url 'event catalog' %}" class="nav-link">Events</a>
-          <a href="{% url 'create adoption event' %}" class="nav-link">Add Event</a>
-          <a href="{% url 'details user' pk=user.pk %}" class="nav-link">Profile</a>
-          <a href="{% url 'logout' %}" class="nav-link">LogOut</a>
-        </div>
-      {% else %}
-        <div class="guest">
-          <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
-          <a href="{% url 'event catalog' %}" class="nav-link">Events</a>
-          <a href="{% url 'login user' %}" class="nav-link">Login</a>
-          <a href="{% url 'register user' %}" class="nav-link">Register</a>
-
-        </div>
-      {% endif %}
+        <nav class="navigation">
+            <div class="nav-container">
+                <a href="{% url 'index' %}" class="logo">
+                    <img id="logo-img" src="{% static 'images/logo.png' %}" alt="PawRescue Logo" />
+                    <span class="logo-text">Paw Rescue</span>
+                </a>
+                <div class="nav-links">
+                    {% if user.is_authenticated %}
+                        <!-- User navigation items -->
+                        <a href="{% url 'volunteer application' %}" class="nav-link">Become a Volunteer</a>
+                        <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
+                        <a href="{% url 'add pet' %}" class="nav-link">Add Pet for Adoption</a>
+                        <a href="{% url 'event catalog' %}" class="nav-link">Events</a>
+                        <a href="{% url 'create adoption event' %}" class="nav-link">Add Event</a>
+                        <a href="{% url 'details user' pk=user.pk %}" class="nav-link">Profile</a>
+                        <a href="{% url 'logout' %}" class="nav-link">LogOut</a>
+                    {% else %}
+                        <!-- Guest navigation items -->
+                        <a href="{% url 'pet catalog' %}" class="nav-link">Pets</a>
+                        <a href="{% url 'event catalog' %}" class="nav-link">Events</a>
+                        <a href="{% url 'login user' %}" class="nav-link">Login</a>
+                        <a href="{% url 'register user' %}" class="nav-link">Register</a>
+                    {% endif %}
+                </div>
+            </div>
         </nav>
     </header>
     <main>
@@ -53,5 +55,3 @@
 </body>
 
 </html>
-
-

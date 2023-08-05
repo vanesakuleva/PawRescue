@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#logo-img {
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+}
+
+.logo-text {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    margin-left: 15px;
+}
+
+/* Styles for navigation bar */
 .navigation {
     background-color: #d5b48c;
     text-align: center;
@@ -9,7 +35,7 @@
     margin-bottom: 20px;
 }
 
-
+/* Styles for navigation links */
 .nav-link {
     color: #fff;
     text-decoration: none;
@@ -25,19 +51,18 @@
     background-color: #1c1106;
 }
 
-
+/* Styles for user and guest navigation sections */
 .user {
     display: flex;
     justify-content: center;
 }
-
 
 .guest {
     display: flex;
     justify-content: center;
 }
 
-
+/* Styles for navigation buttons */
 .navigation button {
     background-color: #e99056;
     border: 2px solid #1c1106;
@@ -52,6 +77,17 @@
     text-align: center;
     text-decoration: none;
     transition: background-color 0.2s ease;
+}
+@media (max-width: 600px) {
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navigation button {
+        margin: 5px;
+    }
 }
 
 .navigation button:hover {
@@ -69,6 +105,7 @@
     margin: 0;
 }
 
+/* Styles for footer */
 .footer {
     background-color: #d5b48c;
     text-align: center;
@@ -78,7 +115,6 @@
     margin-top: 20px;
     color: #fff;
 }
-
 
 .footer a {
     color: #fff;
@@ -94,22 +130,12 @@
     background-color: #1c1106;
 }
 
-
 .footer a:not(:last-child) {
     margin-right: 10px;
 }
+
 @media (min-width: 768px) {
     .navigation button {
         padding: 0 40px;
     }
 }
-
-.logo-container {
-    display: block;
-    margin-bottom: 10px;
-    }
-
-.logo img {
-    width: 100px;
-    height: auto;
-    }
