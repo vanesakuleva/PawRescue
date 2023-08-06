@@ -72,6 +72,7 @@
     box-sizing: border-box;
     font-size: 14px;
     font-family: 'Quicksand', sans-serif;
+    text-align: center ;
 }
 
 .form div label {
