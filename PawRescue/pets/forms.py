@@ -42,6 +42,7 @@ class PetForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Type the town were is the pet'
                 }
-            )
+            ),
+
 
         }
