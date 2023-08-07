@@ -307,6 +307,47 @@
 }
 
 
+.form-field input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e6e6e6;
+    border-radius: 15px;
+    background-color: #f4efec;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+
+.form-field input[type="checkbox"]:checked {
+    background-color: #e99056;
+    border-color: #d48b50;
+}
+
+
+.form-field input[type="checkbox"]:checked::before {
+    content: "\2713";
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.form-field label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-weight: normal;
+    color: #1c1106;
+    font-family: 'Quicksand', sans-serif;
+}
+
 
 
 @media (max-width: 600px) {
