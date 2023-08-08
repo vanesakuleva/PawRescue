@@ -121,7 +121,8 @@ class Profile(models.Model):
     def get_full_name(self):
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
+        return "No Full Name"
 
     def __str__(self):
-        return f'{self.id} {self.get_full_name()}'
+        return f'{self.get_full_name() or "Unnamed User"}'
 
