@@ -29,8 +29,7 @@ class UpdatePetView(views.UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = self.object.created_by
-        pet = Pet.objects.get(pk=user.id)
+        pet = self.get_object()
         context['pet'] = pet
         return context
 
