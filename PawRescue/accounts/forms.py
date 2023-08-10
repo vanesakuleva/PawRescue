@@ -44,7 +44,6 @@ class RegisterUserForm(auth_forms.UserCreationForm):
 
 
 class LoginUserForm(auth_forms.AuthenticationForm):
-
     class Meta:
         model = User
         fields = ['email', 'password1']
@@ -54,6 +53,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'age', 'profile_picture']
+
 
 
 class ChangePasswordForm(auth_forms.PasswordChangeForm):
