@@ -28,6 +28,9 @@ class EventCatalogView(ListView):
     template_name = 'common/adoption_events.html'
     context_object_name = 'events'
 
+    def get_queryset(self):
+        return AdoptionEvent.objects.all().order_by('-created_at')
+
 
 @login_required
 def add_participant(request, event_id):
