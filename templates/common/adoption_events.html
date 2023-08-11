@@ -26,9 +26,9 @@
    </div>
         {% if user.is_authenticated %}
             {% if user in event.participants.all %}
-                <a href="{% url 'remove participant' event_id=event.id %}">Remove from Participants</a>
+                <a href="{% url 'remove participant' event_id=event.id %}" class="action-btn"> Remove from Participants</a>
             {% else %}
-                <a href="{% url 'add participant' event_id=event.id %}">Join Event</a>
+                <a href="{% url 'add participant' event_id=event.id %}" class="action-btn"> Join Event</a>
         {% endif %}
         {% else %}
             <p> <a href="{% url 'login user' %}" class="action-btn">Login</a> or <a href="{% url 'register user' %}" class="action-btn">Register</a> to join this event.</p>
