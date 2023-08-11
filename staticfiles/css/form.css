@@ -244,12 +244,30 @@
 .pet-card {
   background-color: rgba(213, 180, 140, 0.7);
   width: calc(33.33% - 20px);
-  margin: 10px;
-  padding: 10px;
+  margin: 20px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  max-width: 300px;
+  max-width: 400px;
+  text-align: center;
+}
+.pet-card p.name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #58442a;
+}
+
+.pet-card .details {
+  font-size: 20px;
+  color: #58442a;
+  margin-top: 10px;
+}
+
+.pet-card p.intrigued {
+  font-size: 20px;
+  color: #58442a;
+  margin-top: 15px;
 }
 
 
