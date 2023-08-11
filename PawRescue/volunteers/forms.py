@@ -18,7 +18,7 @@ class VolunteerApplicationForm(forms.ModelForm):
         widgets = {
             'full_name': forms.TextInput(
                 attrs={
-                    'placeholder': 'Type your  full name',
+                    'placeholder': 'Type your full name',
                 }
             ),
             'email': forms.EmailInput(

@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth import forms as auth_forms, get_user_model
-from django.forms import PasswordInput, EmailInput
 
 from PawRescue.accounts.models import Profile
 
@@ -49,11 +48,12 @@ class LoginUserForm(auth_forms.AuthenticationForm):
         fields = ['email', 'password1']
 
 
+
+
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['first_name', 'last_name', 'age', 'profile_picture']
-
 
 
 class ChangePasswordForm(auth_forms.PasswordChangeForm):
