@@ -8,6 +8,16 @@ body {
     margin: 0;
     padding-bottom: 80px;
 }
+h1{
+  font-size: 36px;
+  color: #5e3817;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgba(213, 180, 140, 0.7);
+  padding: 10px;
+
+}
 h2 {
   font-size: 36px;
   color: #5e3817;

@@ -287,6 +287,8 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .event {
@@ -297,6 +299,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .event img {
@@ -304,6 +307,31 @@
   max-height: 200px;
   object-fit: cover;
   border-radius: 5px;
+
+}.event-title {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #58442a;
+}
+
+.event-description {
+  margin: 10px 0;
+  color: #58442a;
+}
+
+.event-details {
+  margin: 15px 0;
+}
+
+.event-detail {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+@media (max-width: 768px) {
+  .event {
+    flex: 0 0 calc(50% - 20px);
+  }
 }
 
 

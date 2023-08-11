@@ -8,12 +8,22 @@
         {% if event.photo %}
         <img src="{{ event.photo.url }}" alt="{{ event.name }}" class="event-image">
         {% endif %}
-        <h2>{{ event.name }}</h2>
-        <p>{{ event.description }}</p>
-        <p>Location: {{ event.location }}</p>
-        <p>Start Date: {{ event.start_date }}</p>
-        <p>End Date: {{ event.end_date }}</p>
-      <p>Number of People Going: {{ event.participants.count }}</p>
+<h2 class="event-title">{{ event.name }}</h2>
+  <div class="event-description">{{ event.description }}</div>
+  <div class="event-details">
+    <div class="event-detail">
+      <strong>Location:</strong> {{ event.location }}
+    </div>
+    <div class="event-detail">
+      <strong>Start Date:</strong> {{ event.start_date|date:"d M, Y"  }}
+    </div>
+    <div class="event-detail">
+      <strong>End Date:</strong> {{ event.end_date|date:"d M, Y"  }}
+    </div>
+    <div class="event-detail">
+      <strong>Number of People Going:</strong> {{ event.participants.count }}
+    </div>
+   </div>
         {% if user.is_authenticated %}
             {% if user in event.participants.all %}
                 <a href="{% url 'remove participant' event_id=event.id %}">Remove from Participants</a>
@@ -21,7 +31,7 @@
                 <a href="{% url 'add participant' event_id=event.id %}">Join Event</a>
         {% endif %}
         {% else %}
-            <p>Login to participate in this event.</p>
+            <p> <a href="{% url 'login user' %}" class="action-btn">Login</a> or <a href="{% url 'register user' %}" class="action-btn">Register</a> to join this event.</p>
     {% endif %}
       {% if request.user == event.organizer %}
         <div class="details-buttons">

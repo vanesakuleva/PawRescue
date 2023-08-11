@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-/* Styles for the overall navigation container */
+
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Styles for the logo */
+
 .logo {
     display: inline-flex;
     align-items: center;
@@ -27,7 +27,7 @@
     margin-left: 15px;
 }
 
-/* Styles for the navigation bar */
+
 .navigation {
     background-color: #d5b48c;
     text-align: center;
@@ -37,11 +37,11 @@
     margin-bottom: 20px;
 }
 
-/* Styles for the navigation links */
+
 .nav-links {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 .nav-link {
@@ -59,7 +59,7 @@
     background-color: #1c1106;
 }
 
-/* Styles for navigation buttons */
+
 .navigation button {
     background-color: #e99056;
     border: 2px solid #1c1106;
@@ -106,7 +106,6 @@
     margin-right: 10px;
 }
 
-/* Styles for responsive navigation on small screens */
 @media (max-width: 600px) {
     .nav-links {
         flex-direction: column;
