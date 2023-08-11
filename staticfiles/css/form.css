@@ -268,9 +268,11 @@
 
 .details-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-    padding: 5px 10px;
+  justify-content: center;
+  margin-top: auto;
+  padding: 5px 10px;
+  align-items: flex-end;
+
 }
 
 
@@ -288,13 +290,15 @@
   flex-wrap: wrap;
   margin-top: 20px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .event {
   background-color: rgba(213, 180, 140, 0.7);
   flex: 0 0 calc(33.33% - 20px);
   margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;

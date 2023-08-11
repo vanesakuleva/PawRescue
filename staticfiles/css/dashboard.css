@@ -90,6 +90,7 @@ h2 {
     color: #1c1106;
     text-decoration: none;
     border: none;
+    margin-top: auto;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
