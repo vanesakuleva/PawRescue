@@ -9,18 +9,22 @@
         {% csrf_token %}
             <img src="{{ pet.photo.url }}" class="card-img-top" alt="Pet Image">
             <p>{{ pet.name }}</p>
-            <p>{{ pet.pet_type }} - {{ pet.breed }}</p>
-            <p>Age: {{ pet.age }}</p>
-            <p>Gender: {{ pet.gender }}</p>
-            <p>Town: {{ pet.town }}</p>
-            <p>Intrigued to learn more about {{ pet.name }}? Dive into the details to discover all there is to know!</p>
+            <p> {{ pet.pet_type }} - {{ pet.breed }} </p>
+            <p> <strong>Age:</strong>  {{ pet.age }}</p>
+            <p> <strong>Gender:</strong> {{ pet.gender }}</p>
+            <p> <strong> Town: </strong>  {{ pet.town }}</p>
+            <p>Intrigued to learn more about<strong> {{ pet.name }} </strong> ? Dive into the details to discover all there is to know!</p>
 
              <div class="details-buttons">
                 {% if user.is_authenticated and user == pet.created_by %}
                     <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
                 {% else %}
+                    {% if user.is_authenticated %}
                     <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
                     <a href="{% url 'adoption form' pk=pet.pk %}" class="details-link">Adopt</a>
+                        {% else %}
+                         <a href="{% url 'details pet' pk=pet.pk %}" class="details-link">Details</a>
+                        {% endif %}
                 {% endif %}
             </div>
         </div>

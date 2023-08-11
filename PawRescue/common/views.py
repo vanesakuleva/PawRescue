@@ -15,11 +15,11 @@ class PetsCatalogView(ListView):
     template_name = 'common/pet-posts.html'
 
     def get_queryset(self):
-        return Pet.objects.all()
+        return Pet.objects.all().order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['pets'] = Pet.objects.all()
+        context['pets'] = Pet.objects.all().order_by('-created_at')
         return context
 
 
