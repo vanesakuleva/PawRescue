@@ -49,6 +49,7 @@ class AdoptionEvent(models.Model):
         related_name='events_participating',
         blank=True
     )
+
     created_at = models.DateTimeField(
         auto_now_add=True
     )

@@ -1,4 +1,3 @@
-from django import views
 from django.urls import path
 
 from PawRescue.events.views import AdoptionEventCreateView, DeleteEventView, UpdateEventView

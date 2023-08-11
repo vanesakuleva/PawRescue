@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, TemplateView
 
@@ -17,6 +17,7 @@ class VolunteerApplicationView(CreateView):
 
 class ThankYouView(TemplateView):
     template_name = 'volunteers/thank_you.html'
+
 
 def approve_volunteer_view(request, pk):
     application = get_object_or_404(VolunteerApplication, pk=pk)

@@ -6,7 +6,7 @@ from PawRescue.pets.models import Pet
 class PetForm(forms.ModelForm):
     class Meta:
         model = Pet
-        exclude = ['created_by']
+        exclude = ['created_by', " created_at"]
         widgets = {
             'name': forms.TextInput(
                 attrs={
@@ -15,7 +15,7 @@ class PetForm(forms.ModelForm):
             ),
             'other_pet_type': forms.TextInput(
                 attrs={
-                    'placeholder': 'Type type of the pet'
+                    'placeholder': 'Other type? '
                 }
             ),
             'breed': forms.TextInput(

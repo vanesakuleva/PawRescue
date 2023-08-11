@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 
 from PawRescue.volunteers.views import VolunteerApplicationView, ThankYouView, approve_volunteer_view

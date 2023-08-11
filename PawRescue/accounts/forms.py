@@ -48,8 +48,6 @@ class LoginUserForm(auth_forms.AuthenticationForm):
         fields = ['email', 'password1']
 
 
-
-
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
