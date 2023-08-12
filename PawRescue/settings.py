@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-import whitenoise as whitenoise
 import whitenoise.middleware
 from django import middleware
 import mimetypes
@@ -134,9 +133,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = 'static/'
 
@@ -153,7 +149,6 @@ MEDIA_ROOT = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
