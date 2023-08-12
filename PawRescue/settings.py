@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+import whitenoise as whitenoise
 import whitenoise.middleware
 from django import middleware
 import mimetypes
@@ -149,6 +150,8 @@ MEDIA_ROOT = (
         BASE_DIR / 'media/'
 )
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -156,7 +159,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if os.getcwd() == '/app':
     DEBUG = False
-
-
 
 mimetypes.add_type("text/css", ".css", True)
