@@ -1,5 +1,6 @@
 # Paw Rescue - Connecting Animals with Loving Homes
-![Screenshot 1](screenshots/Screenshot 2023-08-12 at 1.06.09.png)
+
+![Screenshot 1](screenshots/Screenshot%202023-08-12%20at%201.06.09.png)
 
 Welcome to Paw Rescue! Our mission is to connect animals in need with caring families. Paw Rescue is a Django Web App designed to facilitate the adoption and fostering of animals, providing a platform where users can discover adorable pets awaiting their forever homes.
 
@@ -20,7 +21,6 @@ Paw Rescue offers a range of features to provide a comprehensive platform for an
 
 - **Responsive Design for Optimal User Experience:** Our platform is designed to adapt seamlessly to various devices, ensuring that users can access the Paw Rescue features from their desktops, tablets, or smartphones.
 
-We believe in making the journey towards adopting or fostering a pet a delightful and meaningful experience. With these features, Paw Rescue aims to connect animals with their forever homes and bring pet enthusiasts together to celebrate their love for animals.
 
 
 ## Installation
@@ -81,6 +81,6 @@ This project is licensed under the MIT License.
 
 ## Screenshots
 
-![Screenshot 1](screenshots/screenshot1.jpg)
+![Screenshot 1](screenshots/Screenshot 2023-08-12 at 1.06.09.png)
 ![Screenshot 2](screenshots/screenshot2.jpg)
 ![Screenshot 3](screenshots/screenshot3.jpg)
