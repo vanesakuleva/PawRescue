@@ -8,7 +8,11 @@
         <div class="pet-card">
             <img src="{{ pet.photo.url }}" class="card-img-top" alt="Pet Image">
             <p class="name">{{ pet.name }}</p>
-            <p class="details"><strong>Type:</strong>{{ pet.pet_type}}</p>
+            {% if pet.pet_type == 'Other' %}
+                <p class="details" ><strong>Pet type:</strong>  {{ pet.other_pet_type  }}</p>
+            {% else %}
+                <p class="details" ><strong>Pet type: </strong> {{ pet.pet_type }}</p>
+            {% endif %}
             <p class="details"><strong>Breed:</strong> {{ pet.breed }}</p>
             <p class="details"><strong>Age:</strong> {{ pet.age }}</p>
             <p class="details"><strong>Gender:</strong> {{ pet.gender }}</p>

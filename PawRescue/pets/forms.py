@@ -28,9 +28,9 @@ class PetForm(forms.ModelForm):
                     'placeholder': 'Type the age of the pet'
                 }
             ),
-            'specifics_in_behavior':forms.Textarea(
+            'specifics_in_behavior': forms.Textarea(
                 attrs={
-                    'placeholder':'Type specifics behavior if have any'
+                    'placeholder': 'Type specifics behavior if have any'
                 }
             ),
             'description': forms.Textarea(
@@ -43,6 +43,5 @@ class PetForm(forms.ModelForm):
                     'placeholder': 'Type the town were is the pet'
                 }
             ),
-
 
         }
