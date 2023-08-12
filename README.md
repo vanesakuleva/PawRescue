@@ -102,4 +102,4 @@ This project is licensed under the MIT License.
 
 ***
 
-<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 10.31.18.png" alt="Project image" style="width: 850px"/>
+<img src="https://github.com/vanesakuleva/PawRescue/blob/master/screenshots/Screenshot%202023-08-12%20at%201.07.46.png" alt="Project image" style="width: 850px"/>
