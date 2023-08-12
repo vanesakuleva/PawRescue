@@ -1,4 +1,5 @@
 # Paw Rescue - Connecting Animals with Loving Homes
+![Screenshot 1](screenshots/Screenshot 2023-08-12 at 1.06.09.png)
 
 Welcome to Paw Rescue! Our mission is to connect animals in need with caring families. Paw Rescue is a Django Web App designed to facilitate the adoption and fostering of animals, providing a platform where users can discover adorable pets awaiting their forever homes.
 
@@ -21,11 +22,44 @@ Paw Rescue offers a range of features to provide a comprehensive platform for an
 
 We believe in making the journey towards adopting or fostering a pet a delightful and meaningful experience. With these features, Paw Rescue aims to connect animals with their forever homes and bring pet enthusiasts together to celebrate their love for animals.
 
-## Getting Started
 
-To get started with Paw Rescue, follow these steps:
+## Installation
 
-1. **Clone the Repository:** Start by cloning this repository to your local machine: git clone https://github.com/vanesakuleva/PawRescue.git
+Follow these steps to set up and run the Paw Rescue Django web app on your local machine:
+
+1. **Clone the Repository:** Start by cloning this repository to your local machine using Git:
+   ```bash
+   git clone https://github.com/vanesakuleva/PawRescue.git
+   
+2. Navigate to the Project Directory: Change your working directory to the project folder:
+   ```bash
+   cd PawRescue
+
+Create and Activate Virtual Environment (Optional but Recommended): Create and activate a virtual environment:
+bash
+Copy code
+pip install virtualenv
+virtualenv venv
+source venv/bin/activate   # On macOS and Linux
+venv\Scripts\activate      # On Windows
+Install Dependencies: Install the project dependencies:
+bash
+Copy code
+pip install -r requirements.txt
+Apply Database Migrations: Apply necessary database migrations:
+bash
+Copy code
+python manage.py makemigrations
+python manage.py migrate
+Create a Superuser (Optional but Recommended): Create a superuser account for admin access:
+bash
+Copy code
+python manage.py createsuperuser
+Run the Development Server: Start the Django development server:
+bash
+Copy code
+python manage.py runserver
+Access the App: Open a web browser and go to http://127.0.0.1:8000/ to see the Paw Rescue web app.
 
 
 ## Technologies
