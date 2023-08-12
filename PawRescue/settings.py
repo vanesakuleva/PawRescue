@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-$@qq-dr@gd3#y(c87a959*@8f7$llp17jz2cihfw=x!ktfajyp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['/pawrescue-d664da2fdfdf.herokuapp.com']
+ALLOWED_HOSTS = ['pawrescue-d664da2fdfdf.herokuapp.com']
 
 # LOGOUT_REDIRECT_URL = '/'
 # Application definition
