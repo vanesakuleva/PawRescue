@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-import whitenoise
+import whitenoise as whitenoise
 from django import middleware
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,6 +51,8 @@ PAW_RESCUE_APPS = (
     'PawRescue.adoption',
     'PawRescue.events',
     'PawRescue.volunteers'
+
+
 
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PAW_RESCUE_APPS
@@ -135,11 +137,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
-STATIC_ROOT = BASE_DIR / 'static'
+
+STATICFILES_DIRS = (
+    BASE_DIR / 'staticfiles',
+)
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = (
@@ -153,5 +157,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if os.getcwd() == '/app':
     DEBUG = False
+
 
 
