@@ -14,6 +14,7 @@ from pathlib import Path
 
 import whitenoise.middleware
 from django import middleware
+import mimetypes
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,8 +52,6 @@ PAW_RESCUE_APPS = (
     'PawRescue.adoption',
     'PawRescue.events',
     'PawRescue.volunteers'
-
-
 
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PAW_RESCUE_APPS
@@ -160,3 +159,4 @@ if os.getcwd() == '/app':
 
 
 
+mimetypes.add_type("text/css", ".css", True)
