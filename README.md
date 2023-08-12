@@ -81,4 +81,25 @@ This project is licensed under the MIT License.
 
 ## Screenshots
 
+
 <img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 11.37.13.png" alt="Project image" style="width: 850px"/>
+
+***
+
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 10.36.39.png" alt="Project image" style="width: 850px"/>
+
+***
+
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 1.06.52.png" alt="Project image" style="width: 850px"/>
+
+***
+
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 1.07.30.png" alt="Project image" style="width: 850px"/>
+
+***
+
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 9.14.26.png" alt="Project image" style="width: 850px"/>
+
+***
+
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 1.07.46.png" alt="Project image" style="width: 850px"/>
