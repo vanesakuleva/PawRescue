@@ -1,1 +1,1 @@
-web: gunicorn PawRescue.usgi --log-file -
+web: gunicorn PawRescue.wsgi --log-file -
