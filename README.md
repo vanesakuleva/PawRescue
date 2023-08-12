@@ -26,40 +26,39 @@ Paw Rescue offers a range of features to provide a comprehensive platform for an
 
 Follow these steps to set up and run the Paw Rescue Django web app on your local machine:
 
-1. **Clone the Repository:** Start by cloning this repository to your local machine using Git:
+1. **Clone the Repository:** 
    ```bash
    git clone https://github.com/vanesakuleva/PawRescue.git
    
-2. Navigate to the Project Directory: Change your working directory to the project folder:
+2. **Change your working directory to the project folder:** 
    ```bash
    cd PawRescue
    
-3. Create and Activate Virtual Environment:
+3. **Create and Activate Virtual Environment:** 
    ```bash
     pip install virtualenv
     virtualenv venv
     source venv/bin/activate   # On macOS and Linux
     venv\Scripts\activate      # On Windows
 
-4. Install the project dependencies:
+4. **Install the project dependencies:** 
    ```bash
    pip install -r requirements.txt
    
-5. Apply necessary database migrations:
+5. **Apply necessary database migrations:** 
    ```bash
    python manage.py makemigrations
    python manage.py migrate
 
-6. Create a superuser account for admin access:
-Create a Superuser (Optional but Recommended): Create a superuser account for admin access:
+6. **Create a superuser account for admin access:**
    ```bash
     python manage.py createsuperuser
 
-7. Start the Django development server:
+7. **Start the Django development server:** 
    ```bash
     python manage.py runserver
     
-8. Open a web browser and go to http://127.0.0.1:8000/ to see the Paw Rescue web app.
+8. **Open a web browser and go to http://127.0.0.1:8000/ to see the Paw Rescue web app.** 
 
 
 
@@ -82,4 +81,4 @@ This project is licensed under the MIT License.
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot%202023-08-12%20at%201.06.09.png" alt="Project image" style="width: 850px"/>
+<img src="https://raw.githubusercontent.com/vanesakuleva/PawRescue/master/screenshots/Screenshot 2023-08-12 at 10.20.20 (2).png" alt="Project image" style="width: 850px"/>
