@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 
 import whitenoise.middleware
@@ -91,7 +92,7 @@ WSGI_APPLICATION = 'PawRescue.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-import dj_database_url
+
 
 DATABASES = {
     "default":dj_database_url.parse('postgres://vanesa:g7XximQ7GjFVIoLnPhvn6obORMdjFafG@dpg-cjf5il8cfp5c73fj5rl0-a.frankfurt-postgres.render.com/pawrescue_db')
