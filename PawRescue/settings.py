@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$@qq-dr@gd3#y(c87a959*@8f7$llp17jz2cihfw=x!ktfajyp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['pawrescue.onrender.com']
+ALLOWED_HOSTS = []
 
 # LOGOUT_REDIRECT_URL = '/'
 # Application definition
@@ -95,17 +95,15 @@ WSGI_APPLICATION = 'PawRescue.wsgi.application'
 
 
 DATABASES = {
-    "default":dj_database_url.parse('postgres://vanesa:g7XximQ7GjFVIoLnPhvn6obORMdjFafG@dpg-cjf5il8cfp5c73fj5rl0-a.frankfurt-postgres.render.com/pawrescue_db')
-        # "ENGINE": "django.db.backends.postgresql",
-        # "NAME": "PawRescue_db",
-        # "USER": "postgres",
-        # "PASSWORD": "frog5",
-        # "HOST": "127.0.0.1",
-        # "PORT": "5432",
+    "default":{
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "PawRescue_db",
+        "USER": "postgres",
+        "PASSWORD": "frog5",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",}
     }
 
-#g7XximQ7GjFVIoLnPhvn6obORMdjFafG
-#postgres://vanesa:g7XximQ7GjFVIoLnPhvn6obORMdjFafG@dpg-cjf5il8cfp5c73fj5rl0-a/pawrescue_db
 
 AUTH_USER_MODEL = 'accounts.Account'
 
